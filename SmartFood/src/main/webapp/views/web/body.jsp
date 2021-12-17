@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/css/body.css">
+    <link rel="stylesheet" href="../../template/web/body/assets/css/body.css">
 </head>
 
 <body>
@@ -48,7 +48,7 @@
 
                 <div class="bg-smartfood">
                     <div class="card mb-3">
-                        <img src="./assets/image/bgsmartfood.png" class="card-img-top" alt="SmartFood Backround">
+                        <img src="../../template/web/body/assets/image/bgsmartfood.png" class="card-img-top" alt="SmartFood Backround">
                     </div>
                 </div>
 
@@ -57,7 +57,7 @@
                     <div class="col-sm-2 random mt-3">
                         <div class="card" style="width: 14rem;">
                             <span class="card-text bg-red h3 text-center text-light p-2">Hôm nay ăn gì</span>
-                            <img src="./assets/image/imgRandom.jpg" class="img-fluid" alt="Random Background">
+                            <img src="../../template/web/body/assets/image/imgRandom.jpg" class="img-fluid" alt="Random Background">
                             <div class="card-body bg-medium-red text-center">
                                 <button type="button" class="btn bg-red">Random</button>
                             </div>
@@ -81,7 +81,7 @@
                         <div class="row">
                             <div class="card-deck mb-3">
                                 <a href="#" class="card border-food">
-                                    <img src="./assets/image/sanpham/banhuot.jpg" class="foodimg" alt="...">
+                                    <img src="../../template/web/body/assets/image/sanpham/banhuot.jpg" class="foodimg" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">Bánh ướt</h5>
                                         <p class="card-text">25.000 NVĐ</p>
@@ -91,7 +91,7 @@
                                     </div>
                                 </a>
                                 <a href="#" class="card border-food">
-                                    <img src="./assets/image/sanpham/banhxeo.jpg" class="foodimg" alt="...">
+                                    <img src="../../template/web/body/assets/image/sanpham/banhxeo.jpg" class="foodimg" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">Bánh xèo</h5>
                                         <p class="card-text">50.000 VNĐ</p>
@@ -101,7 +101,7 @@
                                     </div>
                                 </a>
                                 <a href="#" class="card border-food">
-                                    <img src="./assets/image/sanpham/bunbo.jpg" class="foodimg" alt="...">
+                                    <img src="../../template/web/body/assets/image/sanpham/bunbo.jpg" class="foodimg" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">Bún bò</h5>
                                         <p class="card-text">37.000 VNĐ</p>
@@ -111,7 +111,7 @@
                                     </div>
                                 </a>
                                 <a href="#" class="card border-food">
-                                    <img src="./assets/image/sanpham/banhxeo.jpg" class="foodimg" alt="...">
+                                    <img src="../../template/web/body/assets/image/sanpham/banhxeo.jpg" class="foodimg" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">Bánh xèo</h5>
                                         <p class="card-text">50.000 VNĐ</p>
@@ -126,7 +126,7 @@
                         <div class="row">
                             <div class="card-deck mb-3">
                                 <a href="#" class="card border-food">
-                                    <img src="./assets/image/sanpham/banhxeo.jpg" class="foodimg" alt="...">
+                                    <img src="../../template/web/body/assets/image/sanpham/banhxeo.jpg" class="foodimg" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">Bánh xèo</h5>
                                         <p class="card-text">50.000 VNĐ</p>
@@ -136,7 +136,7 @@
                                     </div>
                                 </a>
                                 <a href="#" class="card border-food">
-                                    <img src="./assets/image/sanpham/gaxoimo.jpg" class="foodimg" alt="...">
+                                    <img src="../../template/web/body/assets/image/sanpham/gaxoimo.jpg" class="foodimg" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">Cơm gà xối mỡ</h5>
                                         <p class="card-text">25.000 VNĐ</p>
@@ -146,7 +146,7 @@
                                     </div>
                                 </a>
                                 <a href="#" class="card border-food">
-                                    <img src="./assets/image/sanpham/banhxeo.jpg" class="foodimg" alt="...">
+                                    <img src="../../template/web/body/assets/image/sanpham/banhxeo.jpg" class="foodimg" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">Bánh xèo</h5>
                                         <p class="card-text">50.000 VNĐ</p>
@@ -156,7 +156,7 @@
                                     </div>
                                 </a>
                                 <a href="#" class="card border-food">
-                                    <img src="./assets/image/sanpham/xoiman.jpg" class="foodimg" alt="...">
+                                    <img src="../../template/web/body/assets/image/sanpham/xoiman.jpg" class="foodimg" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">Xôi mặn</h5>
                                         <p class="card-text">12.000 VNĐ</p>
@@ -219,6 +219,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
         integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
         crossorigin="anonymous"></script>
+    <script src="../../template/web/body/assets/main.js"></script>
 </body>
 
 </html>
