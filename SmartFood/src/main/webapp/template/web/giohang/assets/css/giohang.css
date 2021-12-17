@@ -1,0 +1,35 @@
+.bg-wrap {
+    background-color: #FFD7D7;
+}
+
+.bg-medium-red {
+    background-color: #F8BABA;
+}
+
+.bg-red {
+    background-color: #DC6060;
+}
+
+.foodimg {
+    width: 170px;
+    height: 170px;
+    border-radius: 15px;
+    margin-top: 12px;
+}
+
+.btn-number-dec, .btn-number-inc {
+    border-color: #DC6060;
+}
+
+.btn-number-dec:hover, .btn-number-inc:hover {
+    background-color: #DC6060;
+}
+
+.spacer_left_right {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.verticalLine {
+    border-left: thick solid #DC6060;
+}

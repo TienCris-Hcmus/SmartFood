@@ -1,0 +1,21 @@
+.bg-wrap {
+    background-color: #FFD7D7;
+}
+
+.bg-medium-red {
+    background-color: #F8BABA;
+}
+
+.bg-red {
+    background-color: #DC6060;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #000000;
+    text-decoration: none;
+}
