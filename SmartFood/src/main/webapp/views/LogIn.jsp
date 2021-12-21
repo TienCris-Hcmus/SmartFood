@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@include file="/common/taglib.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,8 +11,8 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../template/web/login_signup/assets/css/SignUp_LogIn.css">
-    <link rel="stylesheet" href="../../template/web/login_signup/assets/css/style.css">
+    <link rel="stylesheet" href="<c:url value="/template/web/login_signup/assets/css/SignUp_LogIn.css"/>">
+    <link rel="stylesheet" href="<c:url value="/template/web/login_signup/assets/css/style.css"/>">
 </head>
 
 <body>
@@ -47,18 +50,21 @@
 
                 <div class="row">
                     <div class="col-sm-7">
-                        <img class="bg-signup-login" src="../../template/web/login_signup/assets/image/bgSignup_Login.png" alt="">
+                        <img class="bg-signup-login" src="<c:url value="/template/web/login_signup/assets/image/bgSignup_Login.png"/>" alt="">
                     </div>
                     <div class="col-sm-5 d-flex justify-content-center">
-                        <form action="" method="POST" class="form" id="form-1">
+                        <form action="<c:url value='/dang-nhap'/>"  class="form" id="form-1" method="post">
                             <h3 class="heading">Đăng nhập tài khoản SmartFood</h3>
                             <p class="desc">Cùng nhau thưởng thức món ngon ❤️</p>
-
+                            <c:if test="${not empty message}">
+                            	<div class="alert alert-${alert}">${message}</div>
+                            </c:if>
+							
                             <div class="spacer"></div>
 
                             <div class="form-group">
                                 <label for="username" class="form-label">Tên đăng nhập</label>
-                                <input id="username" name="username" type="text" placeholder="VD: trongtri"
+                                <input id="username" name="username" type="text" placeholder="spacespeaker123"
                                     class="form-control">
                                 <span class="form-message"></span>
                             </div>
@@ -71,13 +77,13 @@
                             </div>
 
                             <button type="button" class="btn bg-red text-light d-flex flex-row hv">Quên mật khẩu?</button>
-
-                            <button class="form-submit">Đăng nhập</button>
+                            <button type="submit" class="form-submit">Đăng nhập</button>
 
                             <div class="spacer"></div>
 
                             <a class="another-form" href="./SignUp.html">Đăng ký</a>
                         </form>
+                        
                     </div>
                 </div>
 
@@ -103,7 +109,7 @@
         integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
         crossorigin="anonymous"></script>
 
-    <script src="../../template/web/login_signup/assets/SignUp_LogIn.js"></script>
+    <%-- <script src="<c:url value="/template/web/login_signup/assets/SignUp_LogIn.js"/>"></script>
     <script>
         var options = {
             form: '#form-1',
@@ -120,7 +126,7 @@
         };
 
         Validator(options);
-    </script>
+    </script> --%>
 </body>
 
 </html>

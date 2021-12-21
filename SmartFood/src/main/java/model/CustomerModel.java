@@ -1,62 +1,66 @@
 package model;
 
 public class CustomerModel {
-	private String IDCus;
-	private String NameCus;
-	private String Phone;
-	private String Username;
-	private String password_;
-	private String Address_;
-	private String Email;
-	private String Status_;
-	public String getIDCus() {
-		return IDCus;
-	}
-	public void setIDCus(String iDCus) {
-		IDCus = iDCus;
-	}
+	private String idCus;
+	private String nameCus;
+	private String phone;
+	private String username;
+	private String password;
+	private String address_;
+	private String email;
+	private String status_;
+	
+
 	public String getNameCus() {
-		return NameCus;
+		return nameCus;
 	}
 	public void setNameCus(String nameCus) {
-		NameCus = nameCus;
+		this.nameCus = nameCus;
 	}
 	public String getPhone() {
-		return Phone;
+		return phone;
 	}
 	public void setPhone(String phone) {
-		Phone = phone;
+		this.phone = phone;
 	}
 	public String getUsername() {
-		return Username;
+		return username;
 	}
 	public void setUsername(String username) {
-		Username = username;
+		this.username = username;
 	}
-	public String getPassword_() {
-		return password_;
+	public String getPassword() {
+		return password;
 	}
-	public void setPassword_(String password_) {
-		this.password_ = password_;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public String getAddress_() {
-		return Address_;
+		return address_;
 	}
 	public void setAddress_(String address_) {
-		Address_ = address_;
+		this.address_ = address_;
 	}
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 	public String getStatus_() {
-		return Status_;
+		return status_;
 	}
 	public void setStatus_(String status_) {
-		Status_ = status_;
+		this.status_ = status_;
 	}
+	public String getIdCus() {
+		return idCus;
+	}
+	public void setIdCus(String idCus) {
+		this.idCus = idCus;
+	}
+	
+	
 	
 	
 }

@@ -18,6 +18,7 @@ public class FoodMapper implements RowMapper<FoodModel>{
 			food.setBuy(rs.getInt("Buy"));
 			food.setIDStore(rs.getString("IDStore"));
 			food.setIdCategory(rs.getString("IdCategory"));
+			food.setImage(rs.getString("Image"));
 			return food;
 		} catch (Exception e) {
 			return null;

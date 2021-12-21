@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@include file="/common/taglib.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,20 +9,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmartFood</title>
-
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script>
+	<script src="<c:url value="/template/paging/jquery.twbsPagination.js"/>" type="text/javascript"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../template/web/body/assets/css/body.css">
+    <!-- <link rel="stylesheet" href="/template/web/body/assets/css/body.css"> -->
+    <link href="<c:url value="/template/web/body/assets/css/body.css"/>" rel="stylesheet" type="text/css" media="all"/>
 </head>
 
 <body>
+	<form action="<c:url value='trang-chu'/>" id="formSubmit" method="get">
     <div class="main">
 
         <div class="container-fluid">
 
             <header class="header bg-red">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="navbar-brand" href="#">SmartFood</a>
+                    <a class="navbar-brand" href="<c:url value='trang-chu'/>">SmartFood</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -29,13 +37,13 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Trang chủ<span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="<c:url value='trang-chu'/>">Trang chủ<span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link disabled">Disabled</a>
                             </li>
                         </ul>
-                        <form class="form-inline my-2 my-lg-0">
+                        <form class="form-inline my-2 my-lg-0" action="<c:url value='/trang-chu?action=search'/>">
                             <input class="form-control mr-sm-2" type="search" placeholder="Món ăn, cửa hàng,..."
                                 aria-label="Search">
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
@@ -48,7 +56,7 @@
 
                 <div class="bg-smartfood">
                     <div class="card mb-3">
-                        <img src="../../template/web/body/assets/image/bgsmartfood.png" class="card-img-top" alt="SmartFood Backround">
+                        <img src="<c:url value="/template/web/body/assets/image/bgsmartfood.png"/>" class="card-img-top" alt="SmartFood Backround">
                     </div>
                 </div>
 
@@ -57,9 +65,13 @@
                     <div class="col-sm-2 random mt-3">
                         <div class="card" style="width: 14rem;">
                             <span class="card-text bg-red h3 text-center text-light p-2">Hôm nay ăn gì</span>
-                            <img src="../../template/web/body/assets/image/imgRandom.jpg" class="img-fluid" alt="Random Background">
+                            <img src="<c:url value="/template/web/body/assets/image/imgRandom.jpg"/>" class="img-fluid" alt="Random Background">
                             <div class="card-body bg-medium-red text-center">
-                                <button type="button" class="btn bg-red">Random</button>
+<%--                             	<form action="<c:url value='trang-chu'/>" id="randomForm" method="get">
+                            		<input type="hidden" value="true" id="random" name="random"/>
+                            	</form>
+                                <!-- <button type="submit" form="randomForm" class="btn bg-red" >Random</button> --> --%>
+                                <button type="button" class="btn bg-red" onclick="location.href='<c:url value='trang-chu?action=random'/>'" >Random</button>
                             </div>
                         </div>
                     </div>
@@ -70,119 +82,40 @@
                                 <div class="input-group-prepend">
                                     <button class="input-group-text bg-red">🔍</button>
                                 </div>
-                                <input type="text" name="search-food" class="form-control border-item"
-                                    aria-label="Amount (to the nearest dollar)" placeholder="Bạn muốn ăn gì?">
-                                <div class="input-group-append">
-                                    <button class="input-group-text bg-red">Tìm kiếm</button>
-                                </div>
+                                <form action="<c:url value='trang-chu'/>" id="searchForm" method="get">
+	                                <input type="text" name="search" class="form-control border-item"
+	                                    aria-label="Amount (to the nearest dollar)" placeholder="Bạn muốn ăn gì?">
+	                                <div class="input-group-append">
+	                                    <button class="input-group-text bg-red" >Tìm kiếm</button>
+	                                </div>
+                                </form>
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="card-deck mb-3">
+                         <div class="row">
+                         	<c:forEach var="item" items="${model.listResult}">
+                            <div class="col-sm-3 mb-3">
                                 <a href="#" class="card border-food">
-                                    <img src="../../template/web/body/assets/image/sanpham/banhuot.jpg" class="foodimg" alt="...">
+                                    <img src="<c:url value="/template/web/foodImage/${item.image}"/>" class="foodimg" alt="..."> 
+                               
                                     <div class="card-body">
-                                        <h5 class="card-title">Bánh ướt</h5>
-                                        <p class="card-text">25.000 NVĐ</p>
+                                        <h5 class="card-title">${item.name_}</h5>
+                                        <p class="card-text">${item.price}.000 VNĐ</p>
                                     </div>
                                     <div class="card-footer">
-                                        <small class="text-muted">Shop</small>
-                                    </div>
-                                </a>
-                                <a href="#" class="card border-food">
-                                    <img src="../../template/web/body/assets/image/sanpham/banhxeo.jpg" class="foodimg" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Bánh xèo</h5>
-                                        <p class="card-text">50.000 VNĐ</p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <small class="text-muted">Shop</small>
-                                    </div>
-                                </a>
-                                <a href="#" class="card border-food">
-                                    <img src="../../template/web/body/assets/image/sanpham/bunbo.jpg" class="foodimg" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Bún bò</h5>
-                                        <p class="card-text">37.000 VNĐ</p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <small class="text-muted">Shop</small>
-                                    </div>
-                                </a>
-                                <a href="#" class="card border-food">
-                                    <img src="../../template/web/body/assets/image/sanpham/banhxeo.jpg" class="foodimg" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Bánh xèo</h5>
-                                        <p class="card-text">50.000 VNĐ</p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <small class="text-muted">Shop</small>
+                                        <small class="text-muted">${item.storeName}</small>
                                     </div>
                                 </a>
                             </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="card-deck mb-3">
-                                <a href="#" class="card border-food">
-                                    <img src="../../template/web/body/assets/image/sanpham/banhxeo.jpg" class="foodimg" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Bánh xèo</h5>
-                                        <p class="card-text">50.000 VNĐ</p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <small class="text-muted">Shop</small>
-                                    </div>
-                                </a>
-                                <a href="#" class="card border-food">
-                                    <img src="../../template/web/body/assets/image/sanpham/gaxoimo.jpg" class="foodimg" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Cơm gà xối mỡ</h5>
-                                        <p class="card-text">25.000 VNĐ</p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <small class="text-muted">Shop</small>
-                                    </div>
-                                </a>
-                                <a href="#" class="card border-food">
-                                    <img src="../../template/web/body/assets/image/sanpham/banhxeo.jpg" class="foodimg" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Bánh xèo</h5>
-                                        <p class="card-text">50.000 VNĐ</p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <small class="text-muted">Shop</small>
-                                    </div>
-                                </a>
-                                <a href="#" class="card border-food">
-                                    <img src="../../template/web/body/assets/image/sanpham/xoiman.jpg" class="foodimg" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Xôi mặn</h5>
-                                        <p class="card-text">12.000 VNĐ</p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <small class="text-muted">Shop</small>
-                                    </div>
-                                </a>
-                            </div>
+                            </c:forEach>
                         </div>
 
                         <div class="d-flex justify-content-center">
-                            <nav aria-label="Page navigation">
-                                <ul class="pagination">
-                                    <li class="page-item"><a class="page-link bg-red text-light" href="#">Previous</a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link bg-medium-red" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link bg-medium-red" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link bg-medium-red" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link bg-medium-red" href="#">4</a></li>
-                                    <li class="page-item"><a class="page-link bg-medium-red" href="#">5</a></li>
-                                    <li class="page-item"><a class="page-link bg-medium-red" href="#">...</a></li>
-                                    <li class="page-item"><a class="page-link bg-red text-light" href="#">Next</a></li>
-                                </ul>
-                            </nav>
-                        </div>
+                            <!-- <ul class="pagination" id="pagination"></ul> -->
+                            <!-- <input type="hidden" value="" id="page" name="page" /> 
+                            <input type="hidden" value="" id="maxPageItem" name="maxPageItem" />
+							<input type="hidden" value="" id="type" name="type" /> -->
+                        </div> 
                     </div>
 
                     <div class="col-sm-2 trending mt-3">
@@ -191,9 +124,9 @@
                                 Xu hướng
                             </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item bg-medium-red">Bún bò huế</li>
-                                <li class="list-group-item bg-medium-red">Cơm gà xối mỡ</li>
-                                <li class="list-group-item bg-medium-red">Phở Hà Lội</li>
+                            	<c:forEach var="trend" items="${trend.listResult}">
+	                                <li class="list-group-item bg-medium-red">${trend.name_}</li>
+                            	</c:forEach>
                             </ul>
                         </div>
                     </div>
@@ -209,8 +142,9 @@
         </div>
 
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    </form>   
+	<%-- <script src="<c:url value="/template/paging/jquery.twbsPagination.js" />"></script> --%>
+<!--     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
@@ -218,8 +152,21 @@
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
         integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
-        crossorigin="anonymous"></script>
-    <script src="../../template/web/body/assets/main.js"></script>
+        crossorigin="anonymous"></script> -->
+    <script src="<c:url value="/template/web/body/assets/main.js"/>"></script>
+    
+    <!-- <script type="text/javascript">
+    $(function () {
+        window.pagObj = $('#pagination').twbsPagination({
+            totalPages: 5,
+            visiblePages: 3,
+            onPageClick: function (event, page) {
+                console.info(page + ' (from options)');
+            }
+        }).on('page', function (event, page) {
+            console.info(page + ' (from event listening)');
+        });
+    }); -->
+</script>
 </body>
-
 </html>

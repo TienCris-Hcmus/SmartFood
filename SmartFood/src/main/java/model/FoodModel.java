@@ -1,7 +1,7 @@
 package model;
 import java.sql.Timestamp;	
 
-public class FoodModel {
+public class FoodModel extends AbstractModel<FoodModel>{
 	private String IDFood;
 	private String Name_;
 	private Integer Price;
@@ -10,6 +10,7 @@ public class FoodModel {
 	private Integer Buy;
 	private String IDStore;
 	private String IdCategory;
+	private String Image;
 	public String getIDFood() {
 		return IDFood;
 	}
@@ -57,6 +58,12 @@ public class FoodModel {
 	}
 	public void setIdCategory(String idCategory) {
 		IdCategory = idCategory;
+	}
+	public String getImage() {
+		return Image;
+	}
+	public void setImage(String image) {
+		Image = image;
 	}
 	
 	
