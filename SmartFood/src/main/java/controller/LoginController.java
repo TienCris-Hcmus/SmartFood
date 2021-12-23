@@ -48,7 +48,7 @@ public class LoginController extends HttpServlet{
 			CustomerModel model = dao.findLogin(userName, password);
 			if(model!=null) {
 				SessionUtil.getInstance().putValue(req, "USERMODEL", model);
-				resp.sendRedirect(req.getContextPath() + "/trang-chu");
+				resp.sendRedirect(req.getContextPath() + "/gio-hang");
 			}else {
 				resp.sendRedirect(req.getContextPath() +"/dang-nhap?message=username_password_invalid&alert=danger");
 			}

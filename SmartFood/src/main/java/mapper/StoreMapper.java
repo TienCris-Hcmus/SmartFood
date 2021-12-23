@@ -10,7 +10,7 @@ public class StoreMapper implements RowMapper<StoreModel>{
 	public StoreModel mapRow(ResultSet rs) {
 		try {
 			StoreModel store = new StoreModel();
-			store.setIDStore(rs.getString("IDStore"));
+			store.setIDStore(rs.getInt("IDStore"));
 			store.setStoreName(rs.getString("StoreName"));
 			store.setAddress_(rs.getString("Address_"));
 			store.setPhone(rs.getString("Phone"));

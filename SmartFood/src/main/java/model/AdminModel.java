@@ -1,7 +1,7 @@
 package model;
 
 public class AdminModel {
-	private String IDA;
+	private Integer IDA;
 	private String NameAd;
 	private String Phone;
 	private String Username;
@@ -10,12 +10,7 @@ public class AdminModel {
 	private String Email;
 	private String Status_;
 	
-	public String getIDA() {
-		return IDA;
-	}
-	public void setIDA(String iDA) {
-		IDA = iDA;
-	}
+
 	public String getNameAd() {
 		return NameAd;
 	}
@@ -58,4 +53,12 @@ public class AdminModel {
 	public void setStatus_(String status_) {
 		Status_ = status_;
 	}
+	public Integer getIDA() {
+		return IDA;
+	}
+	public void setIDA(Integer iDA) {
+		IDA = iDA;
+	}
+
+	
 }

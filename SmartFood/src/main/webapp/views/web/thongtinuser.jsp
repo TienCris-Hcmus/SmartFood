@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@include file="/common/taglib.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../template/web/thongtinuser/assets/css/thongtinuser.css">
+    <link rel="stylesheet" href="<c:url value="/template/web/thongtinuser/assets/css/thongtinuser.css"/>">
 </head>
 
 <body>
@@ -51,14 +54,14 @@
                     <div class="col-sm-4 verticalLine mt-5 mb-3 ">
                         <div class="card mx-auto" style="width: 20rem;">
                             <ul class="list-group list-group-flush bg-medium-red">
-                                <li class="list-group-item bg-red h3 text-light">👩‍🦰 Cô Ba</li>
-                                <li class="list-group-item bg-red h5 text-light"><a href="./suathongtin.html" id="btn-edit-info">🖊 Sửa thông tin</a></li>
+                                <li class="list-group-item bg-red h3 text-light">${USERMODEL.nameCus}</li>
+                                <li class="list-group-item bg-red h5 text-light"><a href="<c:url value='/thong-tin?action=edit'/>" id="btn-edit-info">🖊 Sửa thông tin</a></li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="col-sm-8 bg-medium-red">
-                        <div class="h1 text-center">Hồ sơ của cô Ba</div>
+                        <div class="h1 text-center">Hồ sơ</div>
                         <div class="row m-4 d-flex justify-content-center">
 
                             <div class="col-sm-6">
@@ -66,44 +69,38 @@
                                     <div class="form-group">
                                         <h5>
                                             <label for="fullname">Họ Tên: </label>
-                                            <span id="fullname">Cô Ba</span>
+                                            <span id="fullname">${USERMODEL.nameCus}</span>
                                         </h5>
                                     </div>
 
                                     <div class="form-group">
                                         <h5>
                                             <label for="username">Tên đăng nhập: </label>
-                                            <span id="username">coba0903</span>
+                                            <span id="username">${USERMODEL.username}</span>
                                         </h5>
                                     </div>
 
                                     <div class="form-group">
                                         <h5>
                                             <label for="phoneNumber">Số điện thoại: </label>
-                                            <span id="phoneNumber">0912365135</span>
+                                            <span id="phoneNumber">${USERMODEL.phone}</span>
                                         </h5>
                                     </div>
 
                                     <div class="form-group">
                                         <h5>
                                             <label for="email">Email: </label>
-                                            <span id="email">coba0903@gmail.com</span>
+                                            <span id="email">${USERMODEL.email}</span>
                                         </h5>
                                     </div>
 
                                     <div class="form-group">
                                         <h5>
                                             <label for="address">Địa chỉ: </label>
-                                            <span id="address">800, D6, khu B</span>
+                                            <span id="address">${USERMODEL.address_}</span>
                                         </h5>
                                     </div>
 
-                                    <div class="form-group">
-                                        <h5>
-                                            <label for="password">Mật khẩu: </label>
-                                            <span id="password">********</span>
-                                        </h5>
-                                    </div>
                                 </form>
                             </div>
 
@@ -133,7 +130,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
         integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
         crossorigin="anonymous"></script>
-    <script src="../../template/web/thongtinuser/assets/mainThongTin.js"></script>
+    <script src="<c:url value="/template/web/thongtinuser/assets/mainThongTin.js"/>"></script>
 </body>
 
 </html>

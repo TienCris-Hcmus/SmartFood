@@ -1,7 +1,7 @@
 package model;
 
 public class CustomerModel {
-	private String idCus;
+	private Integer idCus;
 	private String nameCus;
 	private String phone;
 	private String username;
@@ -53,12 +53,13 @@ public class CustomerModel {
 	public void setStatus_(String status_) {
 		this.status_ = status_;
 	}
-	public String getIdCus() {
+	public Integer getIdCus() {
 		return idCus;
 	}
-	public void setIdCus(String idCus) {
+	public void setIdCus(Integer idCus) {
 		this.idCus = idCus;
 	}
+
 	
 	
 	

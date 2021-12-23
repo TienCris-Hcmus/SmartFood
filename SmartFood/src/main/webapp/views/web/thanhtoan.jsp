@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@include file="/common/taglib.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,11 +8,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thanh toan</title>
+    <title>Thanh Toan</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../template/web/thanhtoan/assets/css/thanhtoan.css">
+    <link rel="stylesheet" href="<c:url value="/template/web/thanhtoan/assets/css/thanhtoan.css"/>">
+    
 </head>
 
 <body>
@@ -52,9 +56,9 @@
                     <div class="col-sm-3 ml-5 m-5">
                         <div class="card mx-auto" style="width: 20rem;">
                             <ul class="list-group list-group-flush bg-medium-red">
-                                <li class="list-group-item bg-red h5 text-light">🏠 Ninh Việt Tiến: 800, D6, khu B</li>
+                                <li class="list-group-item bg-red h5 text-light">🏠 ${USERMODEL.nameCus}: ${USERMODEL.address_}</li>
                                 <li class="list-group-item bg-red h5 text-light">⏱ 30 mins</li>
-                                <li class="list-group-item bg-red h5 text-light">📞 0365454687</li>
+                                <li class="list-group-item bg-red h5 text-light">📞 ${USERMODEL.phone}</li>
                             </ul>
                         </div>
                     </div>
@@ -62,12 +66,12 @@
                     <div class="col-sm-6 mb-5">
                         <div class="card mt-3 ml-4" style="width: 30rem;">
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item h4 p-5 text-center">Ninh Việt Tiến, 20 tuổi</li>
-                                <li class="list-group-item h6">Tạm tính: 160.000VNĐ</li>
+                                <!-- <li class="list-group-item h4 p-5 text-center">Ninh Việt Tiến, 20 tuổi</li> -->
+                                <li class="list-group-item h6">Tạm tính: ${cartTotal}VNĐ</li>
                                 <li class="list-group-item h6">Phí vận chuyển: 15.000VNĐ</li>
-                                <li class="list-group-item h6">Tổng: 175.000VNĐ</li>
+                                <li class="list-group-item h6">Tổng: ${total}VNĐ</li>
                             </ul>
-                            <button type="button" class="btn bg-red text-light" id="btn-dathang">Đặt hàng</button>
+                            <button type="button" class="btn bg-red text-light" id="btn-dathang" onclick="location.href='<c:url value='/thanh-toan?action=pay'/>'">Đặt hàng</button>
                         </div>
                     </div>
                 </div>
@@ -93,7 +97,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
         integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
         crossorigin="anonymous"></script>
-    <script src="../../template/web/thanhtoan/assets/main.js"></script>
+    <script src="<c:url value="/template/web/thanhtoan/assets/main.js"/>"></script>
 </body>
 
 </html>

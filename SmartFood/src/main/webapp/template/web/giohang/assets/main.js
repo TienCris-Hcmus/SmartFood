@@ -57,7 +57,7 @@ function totalMoney() {
     return total;
 }
 
-var btn_thanhtoan = document.querySelector('#btn-thanhtoan');
+/*var btn_thanhtoan = document.querySelector('#btn-thanhtoan');
 btn_thanhtoan.onclick = function (e) {
-    location.assign('/ThanhToan/index.html');
-}
+    location.assign('SmartFood/thanh-toan');
+}*/

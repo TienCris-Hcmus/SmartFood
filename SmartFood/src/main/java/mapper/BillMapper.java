@@ -10,11 +10,10 @@ public class BillMapper implements RowMapper<BillModel>{
 	public BillModel mapRow(ResultSet rs) {
 		try {
 			BillModel bill = new BillModel();
-			bill.setIDBill(rs.getString("IDBill"));
+			bill.setiDBill(rs.getInt("IDBill"));
 			bill.setDateCreated(rs.getTimestamp("DateCreated"));
-			bill.setIDStore(rs.getString("IDStore"));
-			bill.setTotal(rs.getInt("Total"));
-			bill.setIDCus(rs.getString("IDCus"));
+			bill.setStatus(rs.getInt("Status"));
+			bill.setiDCus(rs.getInt("IDCus"));
 			return bill;
 		} catch (Exception e) {
 			return null;

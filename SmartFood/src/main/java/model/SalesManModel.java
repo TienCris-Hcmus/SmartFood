@@ -1,7 +1,7 @@
 package model;
 
 public class SalesManModel {
-	private String IDSa;
+	private Integer IDSa;
 	private String NameSa;
 	private String Phone;
 	private String Username;
@@ -9,13 +9,9 @@ public class SalesManModel {
 	private String Address_;
 	private String Email;
 	private String Status_;
-	private String IDStore;
-	public String getIDSa() {
-		return IDSa;
-	}
-	public void setIDSa(String iDSa) {
-		IDSa = iDSa;
-	}
+	private Integer IDStore;
+
+
 	public String getNameSa() {
 		return NameSa;
 	}
@@ -58,12 +54,20 @@ public class SalesManModel {
 	public void setStatus_(String status_) {
 		Status_ = status_;
 	}
-	public String getIDStore() {
+	public Integer getIDSa() {
+		return IDSa;
+	}
+	public void setIDSa(Integer iDSa) {
+		IDSa = iDSa;
+	}
+	public Integer getIDStore() {
 		return IDStore;
 	}
-	public void setIDStore(String iDStore) {
+	public void setIDStore(Integer iDStore) {
 		IDStore = iDStore;
 	}
+
+
 	
 	
 }

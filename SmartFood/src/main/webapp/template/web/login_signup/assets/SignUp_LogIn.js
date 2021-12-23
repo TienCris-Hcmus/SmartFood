@@ -169,7 +169,7 @@ Validator.isPhone = function (selector, message) {
     }
 }
 
-Validator.isDate = function (selector, message) {
+/*Validator.isDate = function (selector, message) {
     return {
         selector: selector,
         testError: function (value) {
@@ -180,7 +180,7 @@ Validator.isDate = function (selector, message) {
             return message || 'Vui lòng nhập trường này!';
         }
     }
-}
+}*/
 
 Validator.isPassword = function (selector, min, message) {
     return {

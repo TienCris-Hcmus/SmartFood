@@ -10,7 +10,7 @@ public class CustomerMapper implements RowMapper<CustomerModel>{
 	public CustomerModel mapRow(ResultSet rs) {
 		try {
 			CustomerModel customer = new CustomerModel();
-			customer.setIdCus(rs.getString("IDCus"));
+			customer.setIdCus(rs.getInt("IDCus"));
 			customer.setNameCus(rs.getString("NameCus"));
 			customer.setPhone(rs.getString("Phone"));
 			customer.setUsername(rs.getString("Username"));
