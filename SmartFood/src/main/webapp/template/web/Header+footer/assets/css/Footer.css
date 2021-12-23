@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  -webkit-transition: .2s linear;
+  transition: .2s linear;
+}
+.Footer{
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+.Footer .app{
+  display: flex;
+  justify-content: center;
+}
+.Footer .app .shop-app
+{
+  width: 12rem;
+  border-radius: 0.5rem;
+  display: flex; 
+  margin-left: 5rem;
+  color: black;
+  justify-content:center;
+  background-color: white;
+  border: 2px solid black;
+}
+.Footer .app .shop-app i{
+  font-size:  4rem;
+  margin-right:0.1rem ;
+}
+.Footer .app .shop-app .data {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+}
+.Footer .shop-app .data b{
+  font-size: 1rem;
+}
+.Footer .infor{
+  padding-top:5rem ;
+  display: flex;
+  justify-content: space-between;
+}
+.Footer .infor i
+{
+  padding-left: 2rem;
+}
+
+.Footer .infor .list a{
+  color: black;
+  text-decoration: none;
+  padding: 2rem;
+}
