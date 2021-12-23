@@ -66,7 +66,7 @@ public class AbstractDAO<T> implements GenericDAO<T>{
 		}
 	}
 	
-	private void setParameter(PreparedStatement stament, Object... parameters) {
+	protected void setParameter(PreparedStatement stament, Object... parameters) {
 		try {
 			for(int i = 0; i < parameters.length;i++) {
 				int index = i+1;
@@ -117,5 +117,37 @@ public class AbstractDAO<T> implements GenericDAO<T>{
 			}
 		}
 	}
-	
+
+	@Override
+	public void update(String sql, Object... parameters) {
+		Connection connection = null;
+		PreparedStatement stament = null;
+		try {
+			connection = getConnection();
+			connection.setAutoCommit(false);
+			stament = connection.prepareStatement(sql);
+			setParameter(stament, parameters);
+			stament.executeUpdate();
+			connection.commit();
+		} catch (SQLException e) {
+			if(connection!=null) {
+				try {
+					connection.rollback();
+				} catch (Exception e2) {
+				}
+			}
+		}finally {
+			try {
+				if (connection != null) {
+					connection.close();
+				}
+				if (stament != null) {
+					stament.close();
+				}
+			} catch (Exception e2) {
+			}
+		}
+		
+	}
+
 }

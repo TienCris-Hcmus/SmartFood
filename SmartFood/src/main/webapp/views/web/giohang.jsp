@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@include file="/common/taglib.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../template/web/giohang/assets/css/giohang.css">
+    <link rel="stylesheet" href="<c:url value="/template/web/giohang/assets/css/giohang.css"/>">
 </head>
 
 <body>
@@ -48,186 +51,58 @@
 
                 <div class="row bg-wrap">
                     <div class="col-sm-8">
-                        <div class="h1 text-center">Giỏ Hàng(8)</div>
+                        <div class="h1 text-center">Giỏ Hàng</div>
                         <div class="row">
+							<c:forEach var='item' items='${cart.listResult}'>
+	                            <div class="col-sm-6">
+	                                <div class="card mb-3 bg-medium-red" style="max-width: 540px;">
+	                                    <div class="row no-gutters">
+	                                        <div class="col-md-4">
+	                                            <img class="foodimg" src="<c:url value="/template/web/foodImage/${item.image}"/>" alt="foodImg">
+	                                        </div>
+	                                        <div class="col-md-8">
+	                                            <div class="card-body">
+	                                                <h5 class="card-title">${item.name_}</h5>
+	                                                <p class="card-text">${item.address_}</p>
+	                                                <p class="card-text"><small class="text-muted"><span id="Money">${item.price}</span><span>VNĐ</span></small></p>
+	                                                <form action="<c:url value="/gio-hang"/>" id="formMinus${item.iDFood}" method="post">
+	                                                	<input type="hidden" name="idFood" value="${item.iDFood}">
+	                                                	<input type="hidden" name="idBill" value="${item.iDBill}">
+	                                                	<input type="hidden" name="quantity" value="${item.quantity}">
+	                                                	<input type="hidden" name="action" value="minus">
+	                                                </form>
+	                                                <button type="submit" form="formMinus${item.iDFood}" class="btn btn-number-dec">-</button>
+	                                                <span class="h4 spacer_left_right" id="number-product">${item.quantity}</span>
 
-                            <div class="col-sm-6">
-                                <div class="card mb-3 bg-medium-red" style="max-width: 540px;">
-                                    <div class="row no-gutters">
-                                        <div class="col-md-4">
-                                            <img class="foodimg" src="../../template/web/giohang/assets/image/sanpham/banhuot.jpg" alt="foodImg">
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Bánh ướt</h5>
-                                                <p class="card-text">Bánh ướt cô Ba, đường vành đai khu B</p>
-                                                <p class="card-text"><small class="text-muted"><span id="Money">20000</span><span>VNĐ</span></small></p>
-                                                <button type="button" class="btn btn-number-dec">-</button>
-                                                <span class="h4 spacer_left_right" id="number-product">1</span>
-                                                <button type="button" class="btn btn-number-inc">+</button>
-                                                <button type="button" class="btn bg-red" id="delete-product">Xóa</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+	                                                <button type="submit" form="formAdd${item.iDFood}" class="btn btn-number-inc">+</button>
+                                        			<form action="<c:url value="/gio-hang"/>" id="formAdd${item.iDFood}" method="post">
+	                                                	<input type="hidden" name="idFood" value="${item.iDFood}">
+	                                                	<input type="hidden" name="idBill" value="${item.iDBill}">
+	                                                	<input type="hidden" name="action" value="add">
+	                                                </form>
+	                                                <form action="<c:url value="/gio-hang"/>" id="formDelete" method="post">
+	                                                	<button type="submit" class="btn bg-red" id="delete-product">Xóa</button>
+	                                                	<input type="hidden" name="idFood" value="${item.iDFood}">
+	                                                	<input type="hidden" name="idBill" value="${item.iDBill}">
+	                                                	<input type="hidden" name="action" value="delete">
+	                                            	</form>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+                            </c:forEach>
 
-                            <div class="col-sm-6">
-                                <div class="card mb-3 bg-medium-red" style="max-width: 540px;">
-                                    <div class="row no-gutters">
-                                        <div class="col-md-4">
-                                            <img class="foodimg" src="../../template/web/giohang/assets/image/sanpham/banhxeo.jpg" alt="foodImg">
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Bánh xèo</h5>
-                                                <p class="card-text">Bánh xèo cô Bốn, đường vành đai B</p>
-                                                <p class="card-text"><small class="text-muted"><span id="Money">25000</span><span>VNĐ</span></small></p>
-                                                <button type="button" class="btn btn-number-dec">-</button>
-                                                <span class="h4 spacer_left_right" id="number-product">1</span>
-                                                <button type="button" class="btn btn-number-inc">+</button>
-                                                <button type="button" class="btn bg-red" id="delete-product">Xóa</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <div class="card mb-3 bg-medium-red" style="max-width: 540px;">
-                                    <div class="row no-gutters">
-                                        <div class="col-md-4">
-                                            <img class="foodimg" src=".../../template/web/giohang/assets/image/sanpham/bunbo.jpg" alt="foodImg">
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Bún bò</h5>
-                                                <p class="card-text">Bún bò ông Năm, đường vành đai B</p>
-                                                <p class="card-text"><small class="text-muted"><span id="Money">20000</span><span>VNĐ</span></small></p>
-                                                <button type="button" class="btn btn-number-dec">-</button>
-                                                <span class="h4 spacer_left_right" id="number-product">1</span>
-                                                <button type="button" class="btn btn-number-inc">+</button>
-                                                <button type="button" class="btn bg-red" id="delete-product">Xóa</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <div class="card mb-3 bg-medium-red" style="max-width: 540px;">
-                                    <div class="row no-gutters">
-                                        <div class="col-md-4">
-                                            <img class="foodimg" src="../../template/web/giohang/assets/image/sanpham/gaxoimo.jpg" alt="foodImg">
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Cơm gà xối mỡ</h5>
-                                                <p class="card-text">Cơm gà Nguyên Ký, đường vành đai B</p>
-                                                <p class="card-text"><small class="text-muted"><span id="Money">30000</span><span>VNĐ</span></small></p>
-                                                <button type="button" class="btn btn-number-dec">-</button>
-                                                <span class="h4 spacer_left_right" id="number-product">1</span>
-                                                <button type="button" class="btn btn-number-inc">+</button>
-                                                <button type="button" class="btn bg-red" id="delete-product">Xóa</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <div class="card mb-3 bg-medium-red" style="max-width: 540px;">
-                                    <div class="row no-gutters">
-                                        <div class="col-md-4">
-                                            <img class="foodimg" src="../../template/web/giohang/assets/image/sanpham/banhuot.jpg" alt="foodImg">
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Bánh ướt</h5>
-                                                <p class="card-text">Bánh ướt cô Ba, đường vành đai khu B</p>
-                                                <p class="card-text"><small class="text-muted"><span id="Money">20000</span><span>VNĐ</span></small></p>
-                                                <button type="button" class="btn btn-number-dec">-</button>
-                                                <span class="h4 spacer_left_right" id="number-product">1</span>
-                                                <button type="button" class="btn btn-number-inc">+</button>
-                                                <button type="button" class="btn bg-red" id="delete-product">Xóa</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <div class="card mb-3 bg-medium-red" style="max-width: 540px;">
-                                    <div class="row no-gutters">
-                                        <div class="col-md-4">
-                                            <img class="foodimg" src="../../template/web/giohang/assets/image/sanpham/banhuot.jpg" alt="foodImg">
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Bánh ướt</h5>
-                                                <p class="card-text">Bánh ướt cô Ba, đường vành đai khu B</p>
-                                                <p class="card-text"><small class="text-muted"><span id="Money">20000</span><span>VNĐ</span></small></p>
-                                                <button type="button" class="btn btn-number-dec">-</button>
-                                                <span class="h4 spacer_left_right" id="number-product">1</span>
-                                                <button type="button" class="btn btn-number-inc">+</button>
-                                                <button type="button" class="btn bg-red" id="delete-product">Xóa</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <div class="card mb-3 bg-medium-red" style="max-width: 540px;">
-                                    <div class="row no-gutters">
-                                        <div class="col-md-4">
-                                            <img class="foodimg" src="../../template/web/giohang/assets/image/sanpham/banhuot.jpg" alt="foodImg">
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Bánh ướt</h5>
-                                                <p class="card-text">Bánh ướt cô Ba, đường vành đai khu B</p>
-                                                <p class="card-text"><small class="text-muted"><span id="Money">20000</span><span>VNĐ</span></small></p>
-                                                <button type="button" class="btn btn-number-dec">-</button>
-                                                <span class="h4 spacer_left_right" id="number-product">1</span>
-                                                <button type="button" class="btn btn-number-inc">+</button>
-                                                <button type="button" class="btn bg-red" id="delete-product">Xóa</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <div class="card mb-3 bg-medium-red" style="max-width: 540px;">
-                                    <div class="row no-gutters">
-                                        <div class="col-md-4">
-                                            <img class="foodimg" src="../../template/web/giohang/assets/image/sanpham/banhuot.jpg" alt="foodImg">
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Bánh ướt</h5>
-                                                <p class="card-text">Bánh ướt cô Ba, đường vành đai khu B</p>
-                                                <p class="card-text"><small class="text-muted"><span id="Money">20000</span><span>VNĐ</span></small></p>
-                                                <button type="button" class="btn btn-number-dec">-</button>
-                                                <span class="h4 spacer_left_right" id="number-product">1</span>
-                                                <button type="button" class="btn btn-number-inc">+</button>
-                                                <button type="button" class="btn bg-red" id="delete-product">Xóa</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
                         </div>
                     </div>
-
+					
                     <div class="col-sm-4 verticalLine mt-3 mb-3 ">
                         <div class="card mx-auto" style="width: 20rem;">
                             <ul class="list-group list-group-flush bg-medium-red">
-                                <li class="list-group-item bg-red h5 text-light">🏠 Ninh Việt Tiến: 800, D6, khu B</li>
-                                <li class="list-group-item bg-red h5 text-light">⏱ 30 mins</li>
-                                <li class="list-group-item bg-red h5 text-light">📞 0365454687</li>
+                                <li class="list-group-item bg-red h5 text-light">🏠 ${USERMODEL.nameCus}: ${USERMODEL.address_}</li>
+                                <!-- <li class="list-group-item bg-red h5 text-light">⏱ 30 mins</li> -->
+                                <li class="list-group-item bg-red h5 text-light">📞 ${USERMODEL.phone}</li>
                             </ul>
                         </div>
 
@@ -240,7 +115,7 @@
                         </div>
 
                         <div class="d-flex flex-row justify-content-center mt-3">
-                            <button type="button" class="btn bg-red text-light" id="btn-thanhtoan">Thanh toán</button>
+                            <button type="button" class="btn bg-red text-light" id="btn-thanhtoan" onclick="location.href='<c:url value='/thanh-toan'/>'">Thanh toán</button>
                         </div>
                     </div>
                 </div>
@@ -266,7 +141,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
         integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
         crossorigin="anonymous"></script>
-    <script src="../../template/web/giohang/assets/main.js"></script>
+    <script src="<c:url value="/template/web/giohang/assets/main.js"/>"></script>
 </body>
 
 </html>

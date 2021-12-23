@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@include file="/common/taglib.jsp"%>
+<c:url var="editUrl" value="/chinh-sua-thong-tin" />
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +13,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../template/web/thongtinuser/assets/css/thongtinuser.css">
+    <link rel="stylesheet" href="<c:url value='/template/web/thongtinuser/assets/css/thongtinuser.css'/>">
 </head>
 
 <body>
@@ -51,53 +55,53 @@
                     <div class="col-sm-4 verticalLine mt-5 mb-3 ">
                         <div class="card mx-auto"  style="width: 20rem;">
                             <ul class="list-group list-group-flush bg-medium-red">
-                                <li class="list-group-item bg-red h3 text-light">👩‍🦰 Cô Ba</li>
+                                <li class="list-group-item bg-red h3 text-light">${USERMODEL.nameCus}</li>
                                 <li class="list-group-item bg-red h5 text-light"><a href="#">🖊 Sửa thông tin</a></li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="col-sm-8 bg-medium-red">
-                        <div class="h1 text-center">Hồ sơ của cô Ba</div>
+                        <div class="h1 text-center">Hồ sơ</div>
                         <div class="row m-4 d-flex justify-content-center">
 
                             <div class="col-sm-6">
-                                <form id="form-info-edit" method="GET" action="/ThongTin%20User/thongtin.html">
+                                <form action="<c:url value='/thong-tin'/>" id="form-info-edit" method="post">
                                     <div class="form-group">
                                         <label for="fullname">Họ Tên</label>
-                                        <input type="text" class="form-control" id="fullname">
+                                        <input type="text" class="form-control" id="fullname" name="nameCus" value="${USERMODEL.nameCus}" readonly="readonly">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="username">Tên đăng nhập</label>
-                                        <input type="text" class="form-control" id="username">
+                                        <input type="text" class="form-control" id="username" name="username" value="${USERMODEL.username}" readonly="readonly">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="phoneNumber">Số điện thoại</label>
-                                        <input type="number" class="form-control" id="phoneNumber">
+                                        <input type="number" class="form-control" id="phoneNumber" name="phone" value="${USERMODEL.phone}" >
                                     </div>
 
                                     <div class="form-group">
                                         <label for="email">Email</label>
-                                        <input type="text" class="form-control" id="email">
+                                        <input type="text" class="form-control" name="email" value="${USERMODEL.email}" id="email">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="address">Địa chỉ</label>
-                                        <input type="text" class="form-control" id="address">
+                                        <input type="text" class="form-control" name="address_" value="${USERMODEL.address_}" id="address">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="password">Mật khẩu</label>
-                                        <input type="password" class="form-control" id="password">
+                                        <input type="password" class="form-control" name="password" id="password">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="confirm-password">Xác nhận mật khẩu</label>
                                         <input type="password" class="form-control" id="confirm-password">
                                     </div>
-
+									<input type="hidden" value="${USERMODEL.idCus}" id="idCus" name="idCus">
                                     <button type="submit" class="btn bg-red" id="btn-confirm-edit">Xác nhận thay đổi</button>
                                 </form>
                             </div>
@@ -128,7 +132,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
         integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
         crossorigin="anonymous"></script>
-    <script src="../../template/web/thongtinuser/assets/mainSuaThongTin.js"></script>
-</body>
+    <%-- <script src="<c:url value='/template/web/thongtinuser/assets/mainSuaThongTin.js'/>"></script> --%>
 
+</body>
 </html>

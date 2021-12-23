@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@include file="/common/taglib.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,15 +11,12 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../template/web/login_signup/assets/css/SignUp_LogIn.css">
-    <link rel="stylesheet" href="../../template/web/login_signup/assets/css/style.css">
+    <link rel="stylesheet" href="<c:url value="/template/web/login_signup/assets/css/SignUp_LogIn.css"/>">
+    <link rel="stylesheet" href="<c:url value="/template/web/login_signup/assets/css/style.css"/>">
 </head>
-
 <body>
     <div class="main">
-
         <div class="container-fluid">
-
             <header class="header bg-red">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <a class="navbar-brand" href="#">SmartFood</a>
@@ -25,7 +25,6 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
@@ -48,7 +47,7 @@
 
                 <div class="row">
                     <div class="col-sm-7">
-                        <img class="bg-signup-login" src="../../template/web/login_signup/assets/image/bgSignup_Login.png" alt="">
+                        <img class="bg-signup-login" src="<c:url value="/template/web/login_signup/assets/image/bgSignup_Login.png"/>" alt="">
                     </div>
                     <div class="col-sm-5 d-flex justify-content-center">
                         <!-- Form đăng ký -->
@@ -87,8 +86,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="dob" class="form-label">Ngày sinh</label>
-                                <input id="dob" name="dob" type="text" placeholder="VD: 19/09/2001"
+                                <label for="dob" class="form-label">Địa chỉ</label>
+                                <input id="dob" name="dob" type="text" placeholder="VD: Tòa B4, KTX khu B"
                                     class="form-control">
                                 <span class="form-message"></span>
                             </div>
@@ -124,7 +123,7 @@
 
     </div>
 
-    <script src="../../template/web/login_signup/assets/SignUp_LogIn.js"></script>
+    <script src="<c:url value="/template/web/login_signup/assets/SignUp_LogIn.js"/>"></script>
     <script>
         var options = {
             form: '#form-1',

@@ -27,7 +27,7 @@
 
             <header class="header bg-red">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="navbar-brand" href="<c:url value='trang-chu'/>">SmartFood</a>
+                    <a class="navbar-brand" href="#">SmartFood</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -43,11 +43,9 @@
                                 <a class="nav-link disabled">Disabled</a>
                             </li>
                         </ul>
-                        <form class="form-inline my-2 my-lg-0" action="<c:url value='/trang-chu?action=search'/>">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Món ăn, cửa hàng,..."
-                                aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
-                        </form>
+                        <input class="form-control mr-sm-2" type="search" placeholder="Món ăn, cửa hàng,..."
+                            aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
                     </div>
                 </nav>
             </header>
@@ -77,21 +75,22 @@
                     </div>
 
                     <div class="col-sm-8 sanpham mt-3">
-                        <div class="row justify-content-center">
-                            <div class="input-group mb-3 col-sm-8 ">
-                                <div class="input-group-prepend">
-                                    <button class="input-group-text bg-red">🔍</button>
-                                </div>
-                                <form action="<c:url value='trang-chu'/>" id="searchForm" method="get">
-	                                <input type="text" name="search" class="form-control border-item"
-	                                    aria-label="Amount (to the nearest dollar)" placeholder="Bạn muốn ăn gì?">
-	                                <div class="input-group-append">
-	                                    <button class="input-group-text bg-red" >Tìm kiếm</button>
+                    	<form action="<c:url value='trang-chu'/>" id="searchForm" method="get">
+	                        <div class="row justify-content-center">
+	                            <div class="input-group mb-3 col-sm-8 ">
+	                                <div class="input-group-prepend">
+	                                    <button class="input-group-text bg-red">🔍</button>
 	                                </div>
-                                </form>
-                            </div>
-                        </div>
-
+	                                
+		                                <input type="text" name="search" class="form-control border-item"
+		                                    aria-label="Amount (to the nearest dollar)" placeholder="Bạn muốn ăn gì?">
+		                                <div class="input-group-append">
+		                                    <button class="input-group-text bg-red" >Tìm kiếm</button>
+		                                </div>
+	                                
+	                            </div>
+	                        </div>
+						</form>
                          <div class="row">
                          	<c:forEach var="item" items="${model.listResult}">
                             <div class="col-sm-3 mb-3">
@@ -100,7 +99,7 @@
                                
                                     <div class="card-body">
                                         <h5 class="card-title">${item.name_}</h5>
-                                        <p class="card-text">${item.price}.000 VNĐ</p>
+                                        <p class="card-text">${item.price}VNĐ</p>
                                     </div>
                                     <div class="card-footer">
                                         <small class="text-muted">${item.storeName}</small>

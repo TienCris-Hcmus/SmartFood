@@ -1,19 +1,15 @@
 package model;
 
 public class StoreModel {
-	private String IDStore;
+	private Integer IDStore;
 	private String StoreName;
 	private String Address_;
 	private String Phone;
 	private String OpeningTime;
 	private String ClosingTime;
 	private Integer Voucher;
-	public String getIDStore() {
-		return IDStore;
-	}
-	public void setIDStore(String iDStore) {
-		IDStore = iDStore;
-	}
+
+
 	public String getStoreName() {
 		return StoreName;
 	}
@@ -49,6 +45,12 @@ public class StoreModel {
 	}
 	public void setVoucher(Integer voucher) {
 		Voucher = voucher;
+	}
+	public Integer getIDStore() {
+		return IDStore;
+	}
+	public void setIDStore(Integer iDStore) {
+		IDStore = iDStore;
 	}
 	
 	

@@ -3,41 +3,36 @@ package model;
 import java.sql.Timestamp;
 
 public class BillModel {
-	private String IDBill;
-	private Timestamp DateCreated;
-	private String IDStore;
-	private Integer Total;
-	private String IDCus;
-	public String getIDBill() {
-		return IDBill;
+	private Integer iDBill;
+	private Timestamp dateCreated;
+	private Integer iDCus;
+	private Integer status;
+	
+	public Integer getiDBill() {
+		return iDBill;
 	}
-	public void setIDBill(String iDBill) {
-		IDBill = iDBill;
+	public void setiDBill(Integer iDBill) {
+		this.iDBill = iDBill;
 	}
 	public Timestamp getDateCreated() {
-		return DateCreated;
+		return dateCreated;
 	}
 	public void setDateCreated(Timestamp dateCreated) {
-		DateCreated = dateCreated;
+		this.dateCreated = dateCreated;
 	}
-	public String getIDStore() {
-		return IDStore;
+	public Integer getiDCus() {
+		return iDCus;
 	}
-	public void setIDStore(String iDStore) {
-		IDStore = iDStore;
+	public void setiDCus(Integer iDCus) {
+		this.iDCus = iDCus;
 	}
-	public Integer getTotal() {
-		return Total;
+	public Integer getStatus() {
+		return status;
 	}
-	public void setTotal(Integer total) {
-		Total = total;
+	public void setStatus(Integer status) {
+		this.status = status;
 	}
-	public String getIDCus() {
-		return IDCus;
-	}
-	public void setIDCus(String iDCus) {
-		IDCus = iDCus;
-	}
-	
+
+
 	
 }

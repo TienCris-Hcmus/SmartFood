@@ -2,21 +2,17 @@ package model;
 import java.sql.Timestamp;	
 
 public class FoodModel extends AbstractModel<FoodModel>{
-	private String IDFood;
+	private Integer IDFood;
 	private String Name_;
 	private Integer Price;
 	private String Described;
 	private Timestamp DateAdded;
 	private Integer Buy;
-	private String IDStore;
+	private Integer IDStore;
 	private String IdCategory;
 	private String Image;
-	public String getIDFood() {
-		return IDFood;
-	}
-	public void setIDFood(String iDFood) {
-		IDFood = iDFood;
-	}
+
+
 	public String getName_() {
 		return Name_;
 	}
@@ -47,12 +43,7 @@ public class FoodModel extends AbstractModel<FoodModel>{
 	public void setBuy(Integer buy) {
 		Buy = buy;
 	}
-	public String getIDStore() {
-		return IDStore;
-	}
-	public void setIDStore(String iDStore) {
-		IDStore = iDStore;
-	}
+
 	public String getIdCategory() {
 		return IdCategory;
 	}
@@ -64,6 +55,18 @@ public class FoodModel extends AbstractModel<FoodModel>{
 	}
 	public void setImage(String image) {
 		Image = image;
+	}
+	public Integer getIDFood() {
+		return IDFood;
+	}
+	public void setIDFood(Integer iDFood) {
+		IDFood = iDFood;
+	}
+	public Integer getIDStore() {
+		return IDStore;
+	}
+	public void setIDStore(Integer iDStore) {
+		IDStore = iDStore;
 	}
 	
 	

@@ -81,7 +81,7 @@
 
                             <div class="spacer"></div>
 
-                            <a class="another-form" href="./SignUp.html">Đăng ký</a>
+                            <a class="another-form" href="<c:url value="/dang-ky"/>">Đăng ký</a>
                         </form>
                         
                     </div>

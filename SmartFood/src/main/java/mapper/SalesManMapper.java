@@ -10,7 +10,7 @@ public class SalesManMapper implements RowMapper<SalesManModel>{
 	public SalesManModel mapRow(ResultSet rs) {
 		try {
 			SalesManModel salesman = new SalesManModel();
-			salesman.setIDSa(rs.getString("IDSa"));
+			salesman.setIDSa(rs.getInt("IDSa"));
 			salesman.setNameSa(rs.getString("NameSa"));
 			salesman.setPhone(rs.getString("Phone"));
 			salesman.setUsername(rs.getString("Username"));
@@ -18,7 +18,7 @@ public class SalesManMapper implements RowMapper<SalesManModel>{
 			salesman.setAddress_(rs.getString("Address_"));
 			salesman.setEmail(rs.getString("Email"));
 			salesman.setStatus_(rs.getString("Status_"));
-			salesman.setIDStore(rs.getString("IDStore"));
+			salesman.setIDStore(rs.getInt("IDStore"));
 			return salesman;
 		} catch (Exception e) {
 			return null;
