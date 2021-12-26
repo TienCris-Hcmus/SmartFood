@@ -1,64 +1,64 @@
 package model;
 
 public class AdminModel {
-	private Integer IDA;
-	private String NameAd;
-	private String Phone;
-	private String Username;
-	private String Password_;
-	private String Address_;
-	private String Email;
-	private String Status_;
+	private Integer iDA;
+	private String nameAd;
+	private String phone;
+	private String username;
+	private String password_;
+	private String address_;
+	private String email;
+	private String status_;
 	
-
+	public Integer getiDA() {
+		return iDA;
+	}
+	public void setiDA(Integer iDA) {
+		this.iDA = iDA;
+	}
 	public String getNameAd() {
-		return NameAd;
+		return nameAd;
 	}
 	public void setNameAd(String nameAd) {
-		NameAd = nameAd;
+		this.nameAd = nameAd;
 	}
 	public String getPhone() {
-		return Phone;
+		return phone;
 	}
 	public void setPhone(String phone) {
-		Phone = phone;
+		this.phone = phone;
 	}
 	public String getUsername() {
-		return Username;
+		return username;
 	}
 	public void setUsername(String username) {
-		Username = username;
+		this.username = username;
 	}
 	public String getPassword_() {
-		return Password_;
+		return password_;
 	}
 	public void setPassword_(String password_) {
-		this.Password_ = password_;
+		this.password_ = password_;
 	}
 	public String getAddress_() {
-		return Address_;
+		return address_;
 	}
 	public void setAddress_(String address_) {
-		Address_ = address_;
+		this.address_ = address_;
 	}
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 	public String getStatus_() {
-		return Status_;
+		return status_;
 	}
 	public void setStatus_(String status_) {
-		Status_ = status_;
+		this.status_ = status_;
 	}
-	public Integer getIDA() {
-		return IDA;
-	}
-	public void setIDA(Integer iDA) {
-		IDA = iDA;
-	}
+	
 
 	
 }

@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.impl.AdminDAO;
 import dao.impl.CustomerDAO;
+import model.AdminModel;
 import model.CustomerModel;
 import utils.SessionUtil;
 
@@ -39,8 +41,16 @@ public class LoginController extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String userName = req.getParameter("username");
 		String password = req.getParameter("password");
+		//admin role will be redirect to admin page
 		if(userName.contains("admin")) {
-			
+			AdminDAO dao = new AdminDAO();
+			AdminModel model = dao.findLogin(userName, password);
+			if(model!=null) {
+				SessionUtil.getInstance().putValue(req, "USERMODEL", model);
+				resp.sendRedirect(req.getContextPath() + "/admin-report?action=list");
+			}else {
+				resp.sendRedirect(req.getContextPath() +"/dang-nhap?message=username_password_invalid&alert=danger");
+			}
 		}else if(userName.contains("store")) {
 			
 		}else {
@@ -48,7 +58,7 @@ public class LoginController extends HttpServlet{
 			CustomerModel model = dao.findLogin(userName, password);
 			if(model!=null) {
 				SessionUtil.getInstance().putValue(req, "USERMODEL", model);
-				resp.sendRedirect(req.getContextPath() + "/gio-hang");
+				resp.sendRedirect(req.getContextPath() + "/trang-chu");
 			}else {
 				resp.sendRedirect(req.getContextPath() +"/dang-nhap?message=username_password_invalid&alert=danger");
 			}

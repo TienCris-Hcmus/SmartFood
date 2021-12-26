@@ -10,7 +10,7 @@ public class AdminMapper implements RowMapper<AdminModel>{
 	public AdminModel mapRow(ResultSet rs) {
 		try {
 			AdminModel admin = new AdminModel();
-			admin.setIDA(rs.getInt("IDA"));
+			admin.setiDA(rs.getInt("IDA"));
 			admin.setNameAd(rs.getString("NameAd"));
 			admin.setPhone(rs.getString("Phone"));
 			admin.setUsername(rs.getString("Username"));
