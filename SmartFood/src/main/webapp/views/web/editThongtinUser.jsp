@@ -68,39 +68,47 @@
                             <div class="col-sm-6">
                                 <form action="<c:url value='/thong-tin'/>" id="form-info-edit" method="post">
                                     <div class="form-group">
-                                        <label for="fullname">Họ Tên</label>
-                                        <input type="text" class="form-control" id="fullname" name="nameCus" value="${USERMODEL.nameCus}" readonly="readonly">
+                                        <label for="fullname" class="form-label">Họ tên</label>
+                                        <input id="fullname" name="nameCus" type="text" class="form-control" value="${USERMODEL.nameCus}" readonly="readonly">
+                                        <span class="form-message"></span>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="username">Tên đăng nhập</label>
-                                        <input type="text" class="form-control" id="username" name="username" value="${USERMODEL.username}" readonly="readonly">
+                                        <label for="username" class="form-label">Tên đăng nhập</label>
+                                        <input id="username" name="username" type="text" class="form-control" value="${USERMODEL.username}" readonly="readonly">
+                                        <span class="form-message"></span>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="phoneNumber">Số điện thoại</label>
-                                        <input type="number" class="form-control" id="phoneNumber" name="phone" value="${USERMODEL.phone}" >
+                                        <label for="phoneNumber" class="form-label">Số điện thoại</label>
+                                        <input id="phoneNumber" name="phone" type="number" class="form-control" value="${USERMODEL.phone}">
+                                        <span class="form-message"></span>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="email">Email</label>
-                                        <input type="text" class="form-control" name="email" value="${USERMODEL.email}" id="email">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input id="email" name="email" type="text" class="form-control" value="${USERMODEL.email}">
+                                        <span class="form-message"></span>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="address">Địa chỉ</label>
-                                        <input type="text" class="form-control" name="address_" value="${USERMODEL.address_}" id="address">
+                                        <label for="address" class="form-label">Địa chỉ</label>
+                                        <input id="address" name="address_" type="text" class="form-control" value="${USERMODEL.address_}">
+                                        <span class="form-message"></span>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="password">Mật khẩu</label>
-                                        <input type="password" class="form-control" name="password" id="password">
+                                        <label for="password" class="form-label">Mật khẩu</label>
+                                        <input id="password" name="password" type="password" class="form-control">
+                                        <span class="form-message"></span>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="confirm-password">Xác nhận mật khẩu</label>
-                                        <input type="password" class="form-control" id="confirm-password">
+                                        <label for="confirm-password" class="form-label">Xác nhận mật khẩu</label>
+                                        <input id="confirm-password" name="password_confirmation" type="password" class="form-control">
+                                        <span class="form-message"></span>
                                     </div>
+
 									<input type="hidden" value="${USERMODEL.idCus}" id="idCus" name="idCus">
                                     <button type="submit" class="btn bg-red" id="btn-confirm-edit">Xác nhận thay đổi</button>
                                 </form>
@@ -132,7 +140,38 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
         integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
         crossorigin="anonymous"></script>
+
     <%-- <script src="<c:url value='/template/web/thongtinuser/assets/mainSuaThongTin.js'/>"></script> --%>
+    <script src="<c:url value=" /template/web/thongtinuser/assets/mainSuaThongTin.js "/>"></script>
+    <%--<script src="../template/web/thongtinuser/assets/mainSuaThongTin.js"></script>--%>
+    <script>
+        var options = {
+            form: '#form-1',
+            formGroupSelector: '.form-group',
+            errorSelector: '.form-message',
+            rules: [
+                Validator.isRequired('#fullname'),
+                Validator.isUpperFirst('#fullname', 'Vui lòng viết hoa chữ cái đầu'),
+                Validator.isRequired('#username'),
+                Validator.isUsername('#username', 'Username không được có khoảng trắng, chỉ gồm các ký tự, ký số và dấu _, không bắt đầu bằng số'),
+                Validator.isRequired('#email'),
+                Validator.isEmail('#email'),
+                Validator.isRequired('#phone'),
+                Validator.isPhone('#phone', 'Vui lòng nhập đủ 10 số và bắt đầu bởi số 0'),
+                Validator.isRequired('#dob'),
+                Validator.isDate('#dob', 'Vui lòng nhập đúng định dạng dd/mm/yyyy'),
+                Validator.isPassword('#password', 6),
+                Validator.isPassword_Confirm('#password_confirmation', function() {
+                    return document.querySelector('#form-1 #password').value;
+                }, 'Mật khẩu nhập lại không chính xác')
+            ],
+            onSubmit: function(data) {
+                console.log(data);
+            }
+        };
+
+        Validator(options);
+    </script>
 
 </body>
 </html>
