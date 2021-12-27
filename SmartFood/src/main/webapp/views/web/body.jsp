@@ -17,6 +17,9 @@
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="/template/web/body/assets/css/body.css"> -->
     <link href="<c:url value="/template/web/body/assets/css/body.css"/>" rel="stylesheet" type="text/css" media="all"/>
+
+    <script src="<c:url value="/template/web/Header+footer/assets/Header.js"/>" type="text/javascript"></script>
+    <link rel="stylesheet" href="<c:url value="/template/web/Header+footer/assets/Footer.css"/>">
 </head>
 
 <body>
@@ -24,7 +27,6 @@
     <div class="main">
 
         <div class="container-fluid">
-
             <header class="header bg-red">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <a class="navbar-brand" href="#">SmartFood</a>
@@ -43,9 +45,33 @@
                                 <a class="nav-link disabled">Disabled</a>
                             </li>
                         </ul>
-                        <input class="form-control mr-sm-2" type="search" placeholder="Món ăn, cửa hàng,..."
-                            aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+                        <nav class="Navbar">
+				            <button href="#home">Thông Báo <i class="fas fa-bell"></i></button>
+				            <button href="#about">Hỗ Trợ <i class="far fa-question-circle"></i></button>
+				            <select name="cars" id="cars">
+				                <option value="Tiengviet">Tiếng Việt</option>
+				                <option value="English">Tiếng người Kinh</option>
+				            </select>
+				        </nav>
+				        <c:if test="${empty USERMODEL}">
+					        <div class="Login">
+					            <button href="#">Login</button>
+					            <button href="#">Sign Up</button>
+					        </div>
+				        </c:if>
+				        
+				        <c:if test="${not empty USERMODEL}">
+			                <div class="dropdown">
+				            <button onclick="myFunction()" class="dropbtn">Xin chào ....<i class="fas fa-caret-down"></i></button>
+				            <div id="myDropdown" class="dropdown-content">
+				                <a href="#">TÔI LÀ AI</a>
+				                <a href="#"><i class="far fa-user"></i> Thông tin cá nhân</a>
+				                <a href="#"><i class="fas fa-history"></i> Lịch Sử mua hàng</a>
+				                <a href="#"><i class="far fa-comment-dots"></i> Đóng góp ý kiến</a>
+				                <a href="#"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+				            </div>
+				          </div>
+				        </c:if>
                     </div>
                 </nav>
             </header>
@@ -133,9 +159,45 @@
             </div>
 
             <footer class="footer bg-red">
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    Thông tin website
-                </nav>
+                <div class="Footer">
+	            <div class="app">
+	                <button class="shop-app">
+	                    <i class="fas fa-shopping-bag"></i>   
+	                    <div class="data">
+	                        EXPLORE IT <br><b>AppGallery</b>
+	                    </div>
+	                </button>
+	                <button class="shop-app">
+	                    <i class="fab fa-windows"></i>
+	                    <div class="data">
+	                        Download from <br><b>Window Store</b>
+	                    </div>
+	                </button>
+	                <button class="shop-app">
+	                    <i class="fab fa-google-play"></i>
+	                    <div class="data">
+	                        GET IT ON <br><b>Google Play</b>
+	                    </div>
+	                </button>
+	                <button class="shop-app">
+	                    <i class="fab fa-apple"></i>
+	                    <div class="data">
+	                        Avalible on the <br><b>App Store</b>
+	                    </div>
+	                </button>
+	            </div>
+	            <div class="infor" >
+	                <i class="far fa-copyright">2021 All rights reserved</i>
+	                <div class="list">
+	                    <a href="#home">Giới Thiệu</a>
+	                    <a href="#about">Tính Năng</a>
+	                    <a href="#shop">Định Giá</a>
+	                    <a href="#services">Bộ Sưu Tập</a>
+	                    <a href="#plan">Team</a>
+	                </div>
+	                <a><b>Tham gia với smart Food</b></a>
+	            </div>
+	        	</div>
             </footer>
 
         </div>
