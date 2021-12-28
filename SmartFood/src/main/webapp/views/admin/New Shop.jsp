@@ -13,6 +13,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <link rel="stylesheet" href="<c:url value="/template/admin/assets/css/New Shop.css"/>">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
     <body>
         <!-- code header -->
@@ -33,169 +38,33 @@
             <div class="right">
               <div class="Title">
                 <h1>Add Shop</h1>
-                <button src="#">Log Out <i class="fas fa-sign-out-alt"></i></button>
+                <button onclick="location.href='<c:url value="/dang-xuat?action=adminLogout"/>'">Log Out <i class="fas fa-sign-out-alt"></i></button>
               </div>
               <div class="search">
                 <form class="d-flex">
                   <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                   <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
-                <button class="delete">
-                  Delete
-                  <i class="fas fa-trash-alt"></i>
-                </button>
-                <button class="add">
-                  ADD
-                  <i class="fas fa-user-plus"></i>
-                </button>
               </div>
               <div class="content">
                 <table class="table table-striped">
                   <thead>
                     <tr>
-                      <th scope="col"><input type="checkbox"></th>
-                      <th scope="col">STT</th>
                       <th scope="col">Tên Quán</th>
                       <th scope="col">Số Điện Thoại</th>
-                      
+                      <th scope="col">Duyệt</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row"> <input type="checkbox"></th>
-                      <td>1</td>
-                      <td>Cơm B4</td>
-                      <td>09xxxxxxxx</td>                     
-                    </tr>
-                    <tr>
-                      <th scope="row"> <input type="checkbox"></th>
-                      <td>2</td>
-                      <td>Cơm B4</td>
-                      <td>09xxxxxxxx</td> 
-                    </tr>
-                    <tr>
-                      <th scope="row"> <input type="checkbox"></th>
-                      <td>3</td>
-                      <td>Cơm B4</td>
-                      <td>09xxxxxxxx</td> 
-                    </tr>
-                    <tr>
-                      <th scope="row"> <input type="checkbox"></th>
-                      <td>4</td>
-                      <td>Cơm B4</td>
-                      <td>09xxxxxxxx</td> 
-                     
-                    </tr>
-                    <tr>
-                      <th scope="row"> <input type="checkbox"></th>
-                      <td>5</td>
-                      <td>Cơm B4</td>
-                      <td>09xxxxxxxx</td> 
-                    </tr>
-                    <tr>
-                      <th scope="row"> <input type="checkbox"></th>
-                      <td>6</td>
-                      <td>Cơm B4</td>
-                      <td>09xxxxxxxx</td> 
-                     
-                    </tr>
-                    <tr>
-                      <th scope="row"> <input type="checkbox"></th>
-                      <td>7</td>
-                      <td>Cơm B4</td>
-                      <td>09xxxxxxxx</td> 
-                    </tr>
-                    <tr>
-                      <th scope="row"> <input type="checkbox"></th>
-                      <td>8</td>
-                      <td>Cơm B4</td>
-                      <td>09xxxxxxxx</td> 
-                     
-                    </tr>
-                    <tr>
-                      <th scope="row"> <input type="checkbox"></th>
-                      <td>9</td>
-                      <td>Cơm B4</td>
-                      <td>09xxxxxxxx</td> 
-                    </tr>
-                    <tr>
-                      <th scope="row"> <input type="checkbox"></th>
-                      <td>10</td>
-                      <td>Cơm B4</td>
-                      <td>09xxxxxxxx</td> 
-                     
-                    </tr>
-                    <tr>
-                      <th scope="row"> <input type="checkbox"></th>
-                      <td>11</td>
-                      <td>Cơm B4</td>
-                      <td>09xxxxxxxx</td> 
-                    </tr>
-                    <tr>
-                      <th scope="row"> <input type="checkbox"></th>
-                      <td>12</td>
-                      <td>Cơm B4</td>
-                      <td>09xxxxxxxx</td> 
-                     
-                    </tr>
-                    <tr>
-                      <th scope="row"> <input type="checkbox"></th>
-                      <td>13</td>
-                      <td>Cơm B4</td>
-                      <td>09xxxxxxxx</td> 
-                    </tr>
-                    <tr>
-                      <th scope="row"> <input type="checkbox"></th>
-                      <td>14</td>
-                      <td>Cơm B4</td>
-                      <td>09xxxxxxxx</td> 
-                     
-                    </tr>
-                    <tr>
-                      <th scope="row"> <input type="checkbox"></th>
-                      <td>15</td>
-                      <td>Cơm B4</td>
-                      <td>09xxxxxxxx</td> 
-                    </tr>
-                    <tr>
-                      <th scope="row"> <input type="checkbox"></th>
-                      <td>16</td>
-                      <td>Cơm B4</td>
-                      <td>09xxxxxxxx</td> 
-                     
-                    </tr>
-                    <tr>
-                      <th scope="row"> <input type="checkbox"></th>
-                      <td>17</td>
-                      <td>Cơm B4</td>
-                      <td>09xxxxxxxx</td> 
-                    </tr>
-                    <tr>
-                      <th scope="row"> <input type="checkbox"></th>
-                      <td>18</td>
-                      <td>Cơm B4</td>
-                      <td>09xxxxxxxx</td> 
-                     
-                    </tr>
-                    <tr>
-                      <th scope="row"> <input type="checkbox"></th>
-                      <td>19</td>
-                      <td>Cơm B4</td>
-                      <td>09xxxxxxxx</td> 
-                    </tr>
-                    <tr>
-                      <th scope="row"> <input type="checkbox"></th>
-                      <td>20</td>
-                      <td>Cơm B4</td>
-                      <td>09xxxxxxxx</td> 
-                     
-                    </tr>
-                    <tr>
-                      <th scope="row"> <input type="checkbox"></th>
-                      <td>21</td>
-                      <td>Cơm B4</td>
-                      <td>09xxxxxxxx</td> 
-                    </tr>
+                  	<c:forEach var="item" items="${list.listResult}">
+	                    <tr>
+	                      <td>${item.storeName}</td>
+	                      <td>${item.phone}</td>     
+	                      <td><a class="btn btn-sm btn-primary btn-edit"
+							data-toggle="tooltip" href='<c:url value="/admin-newshop?action=duyet&id=${item.id}"/>'><span class="glyphicon glyphicon-ok"></span></a>
+							</td>                 
+	                    </tr>
+                    </c:forEach>
                   </tbody>
                 </table>
               </div>

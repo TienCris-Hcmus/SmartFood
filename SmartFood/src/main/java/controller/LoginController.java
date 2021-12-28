@@ -27,14 +27,21 @@ public class LoginController extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String message = req.getParameter("message");
-		String alert = req.getParameter("alert");
-		if(message != null && alert != null) {
-			req.setAttribute("message", rb.getString(message));
-			req.setAttribute("alert", alert);
+		CustomerModel cusModel = null;
+		cusModel = ((CustomerModel)SessionUtil.getInstance().getValue(req, "USERMODEL"));
+		if(cusModel ==null) {
+			String message = req.getParameter("message");
+			String alert = req.getParameter("alert");
+			if(message != null && alert != null) {
+				req.setAttribute("message", rb.getString(message));
+				req.setAttribute("alert", alert);
+			}
+			RequestDispatcher rd = req.getRequestDispatcher("/views/LogIn.jsp");
+			rd.forward(req, resp);
+		}else {
+			resp.sendRedirect(req.getContextPath() + "/trang-chu");
 		}
-		RequestDispatcher rd = req.getRequestDispatcher("/views/LogIn.jsp");
-		rd.forward(req, resp);
+
 	}
 	
 	@Override
@@ -46,7 +53,7 @@ public class LoginController extends HttpServlet{
 			AdminDAO dao = new AdminDAO();
 			AdminModel model = dao.findLogin(userName, password);
 			if(model!=null) {
-				SessionUtil.getInstance().putValue(req, "USERMODEL", model);
+				SessionUtil.getInstance().putValue(req, "ADMINMODEL", model);
 				resp.sendRedirect(req.getContextPath() + "/admin-report?action=list");
 			}else {
 				resp.sendRedirect(req.getContextPath() +"/dang-nhap?message=username_password_invalid&alert=danger");

@@ -9,17 +9,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmartFood</title>
+    
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script>
 	<script src="<c:url value="/template/paging/jquery.twbsPagination.js"/>" type="text/javascript"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="/template/web/body/assets/css/body.css"> -->
-    <link href="<c:url value="/template/web/body/assets/css/body.css"/>" rel="stylesheet" type="text/css" media="all"/>
 
-    <script src="<c:url value="/template/web/Header+footer/assets/Header.js"/>" type="text/javascript"></script>
+    <link href="<c:url value="/template/web/body/assets/css/body.css"/>" rel="stylesheet" type="text/css" media="all"/>
+    <!-- Footer -->
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <link rel="stylesheet" href="<c:url value="/template/web/Header+footer/assets/Footer.css"/>">
+
+
 </head>
 
 <body>
@@ -29,7 +33,7 @@
         <div class="container-fluid">
             <header class="header bg-red">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="navbar-brand" href="#">SmartFood</a>
+                    <a class="navbar-brand" href="<c:url value='trang-chu'/>">SmartFood</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -42,36 +46,29 @@
                                 <a class="nav-link" href="<c:url value='trang-chu'/>">Trang chủ<span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link disabled">Disabled</a>
+                                <a class="nav-link disabled"></a>
                             </li>
                         </ul>
-                        <nav class="Navbar">
-				            <button href="#home">Thông Báo <i class="fas fa-bell"></i></button>
-				            <button href="#about">Hỗ Trợ <i class="far fa-question-circle"></i></button>
-				            <select name="cars" id="cars">
-				                <option value="Tiengviet">Tiếng Việt</option>
-				                <option value="English">Tiếng người Kinh</option>
-				            </select>
-				        </nav>
 				        <c:if test="${empty USERMODEL}">
 					        <div class="Login">
-					            <button href="#">Login</button>
-					            <button href="#">Sign Up</button>
+					            <button type="button" class="btn btn-primary" onclick="location.href='<c:url value='dang-nhap'/>'" >Đăng nhập</button>
+					            <button type="button" class="btn btn-primary" onclick="location.href='<c:url value='dang-ky'/>'" >Đăng ký</button>
 					        </div>
 				        </c:if>
 				        
 				        <c:if test="${not empty USERMODEL}">
-			                <div class="dropdown">
-				            <button onclick="myFunction()" class="dropbtn">Xin chào ....<i class="fas fa-caret-down"></i></button>
-				            <div id="myDropdown" class="dropdown-content">
-				                <a href="#">TÔI LÀ AI</a>
-				                <a href="#"><i class="far fa-user"></i> Thông tin cá nhân</a>
-				                <a href="#"><i class="fas fa-history"></i> Lịch Sử mua hàng</a>
-				                <a href="#"><i class="far fa-comment-dots"></i> Đóng góp ý kiến</a>
-				                <a href="#"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
-				            </div>
-				          </div>
-				        </c:if>
+				          <div class="dropdown">
+							  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+							    Xin chào, ${USERMODEL.nameCus}
+							  </button>
+							  <div class="dropdown-menu">
+							    <a class="dropdown-item" href="<c:url value="/thong-tin"/>">Thông tin cá nhân</a>
+							    <a class="dropdown-item" href="<c:url value="/gio-hang"/>">Giỏ hàng</a>
+							    <a class="dropdown-item" href="<c:url value="/lich-su-mua-hang"/>">Lịch sử mua hàng</a>
+							    <a class="dropdown-item" href="<c:url value="/dang-xuat"/>">Đăng xuất</a>
+							  </div>
+							</div>
+				        </c:if>			
                     </div>
                 </nav>
             </header>
@@ -120,7 +117,7 @@
                          <div class="row">
                          	<c:forEach var="item" items="${model.listResult}">
                             <div class="col-sm-3 mb-3">
-                                <a href="#" class="card border-food">
+                                <a href="<c:url value="chi-tiet-mon-an?id=${item.idFood}"/>" class="card border-food">
                                     <img src="<c:url value="/template/web/foodImage/${item.image}"/>" class="foodimg" alt="..."> 
                                
                                     <div class="card-body">
@@ -195,7 +192,7 @@
 	                    <a href="#services">Bộ Sưu Tập</a>
 	                    <a href="#plan">Team</a>
 	                </div>
-	                <a><b>Tham gia với smart Food</b></a>
+	                <a href="<c:url value="/dang-ky?action=shop"/>"><b>Tham gia với smart Food</b></a>
 	            </div>
 	        	</div>
             </footer>
@@ -228,6 +225,5 @@
             console.info(page + ' (from event listening)');
         });
     }); -->
-</script>
 </body>
 </html>

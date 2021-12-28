@@ -14,6 +14,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="<c:url value='/template/web/thongtinuser/assets/css/thongtinuser.css'/>">
+	
+	    <!-- Footer -->
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="stylesheet" href="<c:url value="/template/web/Header+footer/assets/Footer.css"/>">
 </head>
 
 <body>
@@ -23,7 +28,7 @@
 
             <header class="header bg-red">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="navbar-brand" href="#">SmartFood</a>
+                    <a class="navbar-brand" href="<c:url value='trang-chu'/>">SmartFood</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -33,17 +38,32 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Trang chủ<span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="<c:url value='trang-chu'/>">Trang chủ<span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link disabled">Disabled</a>
+                                <a class="nav-link disabled"></a>
                             </li>
                         </ul>
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Món ăn, cửa hàng,..."
-                                aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
-                        </form>
+				        <c:if test="${empty USERMODEL}">
+					        <div class="Login">
+					            <button type="button" class="btn btn-primary" onclick="location.href='<c:url value='dang-nhap'/>'" >Đăng nhập</button>
+					            <button type="button" class="btn btn-primary" onclick="location.href='<c:url value='dang-ky'/>'" >Đăng ký</button>
+					        </div>
+				        </c:if>
+				        
+				        <c:if test="${not empty USERMODEL}">
+				          <div class="dropdown">
+							  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+							    Xin chào, ${USERMODEL.nameCus}
+							  </button>
+							  <div class="dropdown-menu">
+							    <a class="dropdown-item" href="<c:url value="/thong-tin"/>">Thông tin cá nhân</a>
+							    <a class="dropdown-item" href="<c:url value="/gio-hang"/>">Giỏ hàng</a>
+							    <a class="dropdown-item" href="<c:url value="/dang-xuat"/>">Đăng xuất</a>
+							  	<a class="dropdown-item" href="<c:url value="/lich-su-mua-hang"/>">Lịch sử mua hàng</a>
+							  </div>
+							</div>
+				        </c:if>			
                     </div>
                 </nav>
             </header>
@@ -122,9 +142,45 @@
             </div>
 
             <footer class="footer bg-red">
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    Thông tin website
-                </nav>
+                <div class="Footer">
+	            <div class="app">
+	                <button class="shop-app">
+	                    <i class="fas fa-shopping-bag"></i>   
+	                    <div class="data">
+	                        EXPLORE IT <br><b>AppGallery</b>
+	                    </div>
+	                </button>
+	                <button class="shop-app">
+	                    <i class="fab fa-windows"></i>
+	                    <div class="data">
+	                        Download from <br><b>Window Store</b>
+	                    </div>
+	                </button>
+	                <button class="shop-app">
+	                    <i class="fab fa-google-play"></i>
+	                    <div class="data">
+	                        GET IT ON <br><b>Google Play</b>
+	                    </div>
+	                </button>
+	                <button class="shop-app">
+	                    <i class="fab fa-apple"></i>
+	                    <div class="data">
+	                        Avalible on the <br><b>App Store</b>
+	                    </div>
+	                </button>
+	            </div>
+	            <div class="infor" >
+	                <i class="far fa-copyright">2021 All rights reserved</i>
+	                <div class="list">
+	                    <a href="#home">Giới Thiệu</a>
+	                    <a href="#about">Tính Năng</a>
+	                    <a href="#shop">Định Giá</a>
+	                    <a href="#services">Bộ Sưu Tập</a>
+	                    <a href="#plan">Team</a>
+	                </div>
+	                <a href="<c:url value="/dang-ky?action=shop"/>"><b>Tham gia với smart Food</b></a>
+	            </div>
+	        	</div>
             </footer>
 
         </div>
@@ -142,7 +198,7 @@
         crossorigin="anonymous"></script>
 
     <%-- <script src="<c:url value='/template/web/thongtinuser/assets/mainSuaThongTin.js'/>"></script> --%>
-    <script src="<c:url value=" /template/web/thongtinuser/assets/mainSuaThongTin.js "/>"></script>
+    <script src="<c:url value="/template/web/thongtinuser/assets/mainSuaThongTin.js "/>"></script>
     <%--<script src="../template/web/thongtinuser/assets/mainSuaThongTin.js"></script>--%>
     <script>
         var options = {

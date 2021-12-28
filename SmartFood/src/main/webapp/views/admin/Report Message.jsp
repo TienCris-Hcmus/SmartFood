@@ -33,7 +33,7 @@
             <div class="right">
               <div class="Title">
                 <h1>Report</h1>
-                <button src="#">Log Out <i class="fas fa-sign-out-alt"></i></button>
+                <button onclick="location.href='<c:url value="/dang-xuat?action=adminLogout"/>'">Log Out <i class="fas fa-sign-out-alt"></i></button>
               </div>
               <h2>Mã người Gửi : ${report.idCus}</h2>
               <h2>Nội dung </h2>

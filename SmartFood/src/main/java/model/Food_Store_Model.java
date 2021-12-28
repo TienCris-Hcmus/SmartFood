@@ -3,9 +3,12 @@ package model;
 public class Food_Store_Model extends AbstractModel<Food_Store_Model>{
 	private Integer idFood;
 	private String name_;
+	private String describe;
 	private Integer price;
 	private String image;
 	private String storeName;
+	private Integer idShop;
+	
 	
 
 	public String getName_() {
@@ -37,6 +40,18 @@ public class Food_Store_Model extends AbstractModel<Food_Store_Model>{
 	}
 	public void setIdFood(Integer idFood) {
 		this.idFood = idFood;
+	}
+	public String getDescribe() {
+		return describe;
+	}
+	public void setDescribe(String describe) {
+		this.describe = describe;
+	}
+	public Integer getIdShop() {
+		return idShop;
+	}
+	public void setIdShop(Integer idShop) {
+		this.idShop = idShop;
 	}
 
 	

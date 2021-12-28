@@ -1,37 +1,34 @@
 package model;
 
 public class DesBillModel {
-	private Integer IDBill;
-	private Integer IDFood;
-	private Integer Quantity;
-	private Integer Voucher;
-
-
+	private Integer iDBill;
+	private Integer iDFood;
+	private Integer quantity;
+	private Integer voucher;
+	public Integer getiDBill() {
+		return iDBill;
+	}
+	public void setiDBill(Integer iDBill) {
+		this.iDBill = iDBill;
+	}
+	public Integer getiDFood() {
+		return iDFood;
+	}
+	public void setiDFood(Integer iDFood) {
+		this.iDFood = iDFood;
+	}
 	public Integer getQuantity() {
-		return Quantity;
+		return quantity;
 	}
 	public void setQuantity(Integer quantity) {
-		Quantity = quantity;
-	}
-	public Integer getIDBill() {
-		return IDBill;
-	}
-	public void setIDBill(Integer iDBill) {
-		IDBill = iDBill;
-	}
-	public Integer getIDFood() {
-		return IDFood;
-	}
-	public void setIDFood(Integer iDFood) {
-		IDFood = iDFood;
+		this.quantity = quantity;
 	}
 	public Integer getVoucher() {
-		return Voucher;
+		return voucher;
 	}
 	public void setVoucher(Integer voucher) {
-		Voucher = voucher;
+		this.voucher = voucher;
 	}
 
-	
-	
+
 }

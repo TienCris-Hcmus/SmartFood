@@ -9,23 +9,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <title>Smart Food</title>
-    
-    <!-- Header của Trung  -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script>
-	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link href="<c:url value="/template/web/body/assets/css/body.css"/>" rel="stylesheet" type="text/css" media="all"/>
-  
-  	<!-- Quang template  -->
+    <!-- font awesome cdn link  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
-    <link rel="stylesheet" href="<c:url value="/template/web/foodDetail/product details.css"/>">
+    <link rel="stylesheet" href="<c:url value="/template/web/history/history.css"/>">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script>
+	<script src="<c:url value="/template/paging/jquery.twbsPagination.js"/>" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+    <link href="<c:url value="/template/web/body/assets/css/body.css"/>" rel="stylesheet" type="text/css" media="all"/>
+
+	<link href="<c:url value="/template/web/body/assets/css/body.css"/>" rel="stylesheet" type="text/css" media="all"/>
+    
   </head>
     <body>
-
-    	<header class="header bg-red">
+    	            <header class="header bg-red">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <a class="navbar-brand" href="<c:url value='trang-chu'/>">SmartFood</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -58,67 +60,49 @@
 							  <div class="dropdown-menu">
 							    <a class="dropdown-item" href="<c:url value="/thong-tin"/>">Thông tin cá nhân</a>
 							    <a class="dropdown-item" href="<c:url value="/gio-hang"/>">Giỏ hàng</a>
+							    <a class="dropdown-item" href="<c:url value="/lich-su-mua-hang"/>">Lịch sử mua hàng</a>
 							    <a class="dropdown-item" href="<c:url value="/dang-xuat"/>">Đăng xuất</a>
-							  	<a class="dropdown-item" href="<c:url value="/lich-su-mua-hang"/>">Lịch sử mua hàng</a>
 							  </div>
 							</div>
 				        </c:if>			
                     </div>
                 </nav>
             </header>
-
+    
         <div class="row">
             <div class="col-3">   
-                    <a href="#"><i class="fas fa-info-circle"></i> Chi Tiết Sản Phẩm</a>
-                    <a href="#"><i class="far fa-comment-dots"></i> Báo cáo</a>
+                    <a href="#"><i class="fas fa-history"></i> Lịch Sử mua hàng</a>
               </div>  
               <div class="col-9">
                   <div class="Title">
-                    <b>Chi Tiết Sản Phẩm</b>
                   </div>
-                  <div class="product-detail">
-                      <div class="row">
-                          <div class="col-6">
-                            <img src="<c:url value="/template/web/foodDetail/bánh ướt.jpg"/>" alt="">
-                            <p><b>Mô Tả</b><br>${food.describe}</p>
-                          </div>
-                          <div class="col">
-                              <b>${food.name_}</b>
-                              <a href="#"><i class="fas fa-home"></i> Cửa hàng :${food.storeName}</a>
-                             <div class="buy">
-                                 <div class="total"><p id="value">${food.price}</p></div>
-                                 <div class="number">
-	                                 <form id="formAdd" action="<c:url value="/gio-hang?action=addFood"/>" method="POST">
-	                                     <button type="button" onclick="Sub()">
-	                                         -
-	                                     </button>
-	                                     <input type="text" name="quantity" value="1" id="number">
-	                                     <input type="hidden" name="idFood" value="${food.idFood}">
-	                                     <button type="button" onclick="add()">
-	                                         +
-	                                     </button>
-                                     </form>
-                                 </div>
-                                 <button type="submit"form="formAdd">Mua</button>
-                             </div>
-                          </div>
-                    </div>
+                  <div class="history-table">
+                    <table class="table table-hover">
+                        <thead>
+                            <th scope="col"><input type="checkbox"></th>
+                            <th scope="col">Mặt Hàng</th>
+                            <th scope="col">Quán Ăn</th>
+                            <th scope="col">Số Lượng</th>
+                            <th scope="col">Đơn giá</th>
+                            <th scope="col">Thời gian mua</th>
+                        </thead>
+                        <tbody>
+                        	<c:forEach var="item" items="${list.listResult}">
+	                            <tr>
+	                                <th scope="col"><input type="checkbox"></th>
+	                                <td>${item.nameFood}</td>
+	                            	<td>${item.nameStore}</td>
+	                                <td>${item.quantity}</td>
+	                                <td>${item.price}</td>
+	                                <td>${item.dateAdded}</td>
+	                            </tr>
+                            </c:forEach>
+                        </tbody>
+                      </table>
                   </div>
               </div>
         </div>
-        <script>
-            let a=document.getElementById("number");
-            let b=document.getElementById("value");
-            function add(){
-                a.innerHTML=Number(a.value++);
-                b.innerHTML=Number(a.value *25000)
-                return;
-            }
-            function Sub(){
-                a.innerHTML=Number(a.value--);
-                b.innerHTML=Number(a.value*25000)
-                return;
-            }
-        </script>
+        
+
     </body>
 </html>

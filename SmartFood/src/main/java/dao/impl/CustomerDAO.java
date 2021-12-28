@@ -40,6 +40,19 @@ public class CustomerDAO extends AbstractDAO<CustomerModel> implements ICustomer
 		return users.isEmpty() ? null : users.get(0);
 	}
 
+	@Override
+	public void register(CustomerModel m) {
+		String sql = "insert into customer(NameCus, Phone, Username, Password_, Address_, Email, Status_) value(?,?,?,?,?,?,'Enable')";
+		update(sql, m.getNameCus(),m.getPhone(),m.getUsername(), m.getPassword(),m.getAddress_(),m.getEmail());
+	}
+
+	@Override
+	public CustomerModel findLogin(String userName) {
+		StringBuilder sql = new StringBuilder("SELECT * FROM customer where Username = ?");
+		List<CustomerModel> users = query(sql.toString(), new CustomerMapper(), userName);
+		return users.isEmpty() ? null : users.get(0);
+	}
+
 
 
 	

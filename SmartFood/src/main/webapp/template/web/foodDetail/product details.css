@@ -2,13 +2,10 @@
 a{
     display: block;
     text-decoration: none;
-    margin: 2em;
     font-size: 1.2rem;
     color: black;
-}
-i{
-    color:black;
-}
+} 
+
 .Title{
     font-size: 2rem;
     color :red;

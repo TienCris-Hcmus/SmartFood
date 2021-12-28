@@ -10,8 +10,8 @@ public class DesBillMapper implements RowMapper<DesBillModel>{
 	public DesBillModel mapRow(ResultSet rs) {
 		try {
 			DesBillModel desbill = new DesBillModel();
-			desbill.setIDBill(rs.getInt("IDBill"));
-			desbill.setIDFood(rs.getInt("IDFood"));
+			desbill.setiDBill(rs.getInt("IDBill"));
+			desbill.setiDFood(rs.getInt("IDFood"));
 			desbill.setQuantity(rs.getInt("Quantity"));
 			desbill.setVoucher(rs.getInt("Voucher"));
 			return desbill;

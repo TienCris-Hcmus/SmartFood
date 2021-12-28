@@ -66,4 +66,12 @@ public class BillDAO extends AbstractDAO<BillModel> implements IBillDAO {
 
 	}
 
+	@Override
+	public int findIdBill(int idCus) {
+		String sql = "SELECT * FROM bill where IDCus = ? and Status = 0";
+		List<BillModel> list = query(sql, new BillMapper(), idCus);
+		return list.isEmpty()? null : list.get(0).getiDBill();
+		
+	}
+
 }

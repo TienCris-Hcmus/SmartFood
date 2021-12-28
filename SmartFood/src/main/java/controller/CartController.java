@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.impl.BillDAO;
 import dao.impl.CartDetailDAO;
 import model.CartDetailModel;
 import model.CustomerModel;
@@ -23,11 +24,17 @@ public class CartController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		CartDetailModel model = new CartDetailModel();
 		CartDetailDAO dao = new CartDetailDAO();
-		CustomerModel cusModel = ((CustomerModel)SessionUtil.getInstance().getValue(req, "USERMODEL"));
-		model.setListResult(dao.findAll(cusModel.getIdCus()));
-		SessionUtil.getInstance().putValue(req, "cart", model);
-		RequestDispatcher rd = req.getRequestDispatcher("/views/web/giohang.jsp");
-		rd.forward(req, resp);
+		CustomerModel cusModel = null;
+		cusModel = ((CustomerModel)SessionUtil.getInstance().getValue(req, "USERMODEL"));
+		if(cusModel != null) {
+			model.setListResult(dao.findAll(cusModel.getIdCus()));
+			SessionUtil.getInstance().putValue(req, "cart", model);
+			RequestDispatcher rd = req.getRequestDispatcher("/views/web/giohang.jsp");
+			rd.forward(req, resp);
+		}else {
+			resp.sendRedirect(req.getContextPath() + "/dang-nhap?message=not_login&alert=danger");
+		}
+		
 	}
 	
 	@Override
@@ -55,6 +62,25 @@ public class CartController extends HttpServlet {
 					dao.update(idFood, idBill, false);
 				}
 				resp.sendRedirect(req.getContextPath() + "/gio-hang");
+			}else if(action.equals("addFood")) {
+				CustomerModel cusModel = null;
+				cusModel = ((CustomerModel)SessionUtil.getInstance().getValue(req, "USERMODEL"));
+				if(cusModel != null) {
+					int idFood = Integer.parseInt(req.getParameter("idFood"));
+					int quantity = Integer.parseInt(req.getParameter("quantity"));
+					if(quantity > 0) {
+						BillDAO dao = new BillDAO();
+						int idBill = dao.findIdBill(idFood);
+						CartDetailDAO dao2 = new CartDetailDAO();
+						dao2.insert(idBill, idFood, quantity);
+					}
+					resp.sendRedirect(req.getContextPath() + "/chi-tiet-mon-an?id=" + idFood);
+				}else {
+					resp.sendRedirect(req.getContextPath() + "/dang-nhap?message=not_login&alert=danger");
+				}
+				
+				
+
 			}
 			
 		}

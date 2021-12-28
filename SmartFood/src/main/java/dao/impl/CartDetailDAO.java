@@ -3,8 +3,12 @@ package dao.impl;
 import java.util.List;
 
 import dao.ICartDetailDAO;
+import mapper.BillMapper;
 import mapper.CartDetailMapper;
+import mapper.DesBillMapper;
+import model.BillModel;
 import model.CartDetailModel;
+import model.DesBillModel;
 
 public class CartDetailDAO extends AbstractDAO<CartDetailModel> implements ICartDetailDAO{
 
@@ -29,6 +33,23 @@ public class CartDetailDAO extends AbstractDAO<CartDetailModel> implements ICart
 			sql = "update desbill set Quantity = Quantity - 1 where IDBill =? and IDFood=?";
 		}
 		update(sql, idBill, idFood);
+	}
+
+	@Override
+	public void insert(int idBill, int idFood, int quantity) {
+		//Kiểm tra hàng đã tồn tại trong giỏ hàng hay chưa
+		String checkSQL = "select * from desbill where IDFood = ? and IDBill = ?";
+		List<DesBillModel> billList = query(checkSQL, new DesBillMapper(), idFood, idBill);
+		if(billList.isEmpty()) {
+			String insert = "insert into desbill values(?,?,?,0)";
+			update(insert, idBill, idFood, quantity);
+		}else {
+			DesBillModel model = billList.get(0);
+			int newQuantity = model.getQuantity() + quantity;
+			String updateSQL = "update desbill set Quantity=? where IDBill =? and IdFood=?";
+			update(updateSQL, newQuantity, idBill, idFood);
+		}
+		
 	}
 
 }

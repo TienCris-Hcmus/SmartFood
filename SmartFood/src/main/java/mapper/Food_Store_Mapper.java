@@ -15,6 +15,8 @@ public class Food_Store_Mapper implements RowMapper<Food_Store_Model>{
 			food.setPrice(rs.getInt("Price"));
 			food.setStoreName(rs.getString("StoreName"));
 			food.setImage(rs.getString("Image"));
+			food.setDescribe(rs.getString("Described"));
+			food.setIdShop(rs.getInt("IDStore"));
 			return food;
 		} catch (Exception e) {
 			return null;

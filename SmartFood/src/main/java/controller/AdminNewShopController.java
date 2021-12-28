@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.impl.CartDetailDAO;
+import dao.impl.NewShopDAO;
 import model.CartDetailModel;
 import model.CustomerModel;
+import model.NewShopModel;
 import utils.SessionUtil;
 
 @WebServlet(urlPatterns = { "/admin-newshop" })
@@ -21,7 +23,21 @@ public class AdminNewShopController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher rd = req.getRequestDispatcher("/views/admin/New Shop.jsp");
-		rd.forward(req, resp);
+		String action = req.getParameter("action");
+		if (action != null) {
+			if (action.equals("duyet")) {
+				int id = Integer.parseInt(req.getParameter("id"));
+				NewShopDAO dao = new NewShopDAO();
+				dao.deleteNew(id);
+				resp.sendRedirect(req.getContextPath() + "/admin-newshop?action=list");
+			} else if (action.equals("list")) {
+				NewShopDAO dao = new NewShopDAO();
+				NewShopModel model = new NewShopModel();
+				model.setListResult(dao.getAll());
+				req.setAttribute("list", model);
+				RequestDispatcher rd = req.getRequestDispatcher("/views/admin/New Shop.jsp");
+				rd.forward(req, resp);
+			}
+		}
 	}
 }
