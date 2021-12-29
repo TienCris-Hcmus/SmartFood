@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-    <%@include file="/common/taglib.jsp"%>
+<%@include file="/common/taglib.jsp"%>
         <!DOCTYPE html>
         <html lang="en">
 
@@ -17,6 +17,13 @@
 	    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
 	    <link rel="stylesheet" href="<c:url value="/template/web/Header+footer/assets/Footer.css"/>">
+
+    	<link href="<c:url value="/template/web/body/assets/css/body.css"/>" rel="stylesheet" type="text/css" media="all"/>
+		<!--Bootstrap  -->
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        
         </head>
 
         <body>
@@ -60,48 +67,54 @@
 
                                     <div class="form-group">
                                         <label for="fullname" class="form-label">Họ tên</label>
-                                        <input id="fullname" name="nameCus" type="text" placeholder="VD: Trần Trọng Trĩ" class="form-control">
+                                        <input id="fullname" required name="nameCus" type="text" placeholder="VD: Trần Trọng Trĩ" class="form-control">
                                         <span class="form-message"></span>
                                     </div>
-
+									
                                     <div class="form-group">
                                         <label for="username" class="form-label">Tên đăng nhập</label>
-                                        <input id="username" name="username" type="text" placeholder="VD: trongtri" class="form-control">
+                                        <input id="username" required name="username" type="text" placeholder="VD: trongtri" class="form-control">
                                         <span class="form-message"></span>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="email" class="form-label">Email</label>
-                                        <input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control">
+                                        <input id="email" required name="email" type="text" placeholder="VD: email@domain.com" class="form-control">
                                         <span class="form-message"></span>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="phone" class="form-label">Số điện thoại</label>
-                                        <input id="phone" name="phone" type="number" placeholder="VD: 0972218588" class="form-control">
+                                        <input id="phone" required name="phone" type="number" placeholder="VD: 0972218588" class="form-control">
                                         <span class="form-message"></span>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="dob" class="form-label">Địa chỉ</label>
-                                        <input id="dob" name="address_" type="text" placeholder="VD: Tòa B4, KTX khu B" class="form-control">
+                                        <input id="dob" required name="address_" type="text" placeholder="VD: Tòa B4, KTX khu B" class="form-control">
                                         <span class="form-message"></span>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="password" class="form-label">Mật khẩu</label>
-                                        <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
+                                        <input id="password" required name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
                                         <span class="form-message"></span>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="password_confirmation" class="form-label">Nhập lại mật khẩu</label>
-                                        <input id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu" type="password" class="form-control">
+                                        <input id="password_confirmation" required name="password_confirmation" placeholder="Nhập lại mật khẩu" type="password" class="form-control">
                                         <span class="form-message"></span>
                                     </div>
-
+                                    
+									<c:if test="${not empty message}">
+                                        <div class="alert alert-danger">Tên tài khoản đã tồn tại</div>
+                                    </c:if>
+                                    
                                     <button type="submit" class="form-submit">Đăng ký</button>
+                                	
                                 </form>
+                                
                             </div>
                         </div>
 
@@ -152,7 +165,7 @@
                 </div>
 
             </div>
-            <script src="<c:url value="/template/web/login_signup/assets/SignUp_LogIn.js"/>"></script>
+            
 
             <script>
                 var options = {
@@ -182,6 +195,7 @@
 
                 Validator(options);
             </script>
+            <script src="<c:url value="/template/web/login_signup/assets/SignUp_LogIn.js"/>"></script>
         </body>
 
         </html>

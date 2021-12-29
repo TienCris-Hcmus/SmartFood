@@ -79,7 +79,7 @@
                   <div class="product-detail">
                       <div class="row">
                           <div class="col-6">
-                            <img src="<c:url value="/template/web/foodDetail/bánh ướt.jpg"/>" alt="">
+                            <img src="<c:url value="/template/web/foodImage/${food.image}"/>" alt="">
                             <p><b>Mô Tả</b><br>${food.describe}</p>
                           </div>
                           <div class="col">
@@ -99,7 +99,7 @@
 	                                     </button>
                                      </form>
                                  </div>
-                                 <button type="submit"form="formAdd">Mua</button>
+                                 <button type="submit"form="formAdd">Thêm vào giỏ hàng</button>
                              </div>
                           </div>
                     </div>

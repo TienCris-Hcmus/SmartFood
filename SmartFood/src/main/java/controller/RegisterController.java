@@ -23,6 +23,8 @@ public class RegisterController extends HttpServlet{
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	ResourceBundle rb = ResourceBundle.getBundle("message");
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String action = req.getParameter("action");
@@ -32,6 +34,13 @@ public class RegisterController extends HttpServlet{
 				rd.forward(req, resp);
 			}
 		}else {
+			String message = req.getParameter("message");
+			String alert = req.getParameter("alert");
+			if(message != null && alert != null) {
+				req.setAttribute("message", "Tên tài khoản đã tồn tại");
+				req.setAttribute("alert", alert);
+			}
+			
 			RequestDispatcher rd = req.getRequestDispatcher("/views/SignUp.jsp");
 			rd.forward(req, resp);
 		}
