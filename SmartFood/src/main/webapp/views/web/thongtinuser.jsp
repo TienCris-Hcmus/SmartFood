@@ -58,8 +58,8 @@
 							  <div class="dropdown-menu">
 							    <a class="dropdown-item" href="<c:url value="/thong-tin"/>">Thông tin cá nhân</a>
 							    <a class="dropdown-item" href="<c:url value="/gio-hang"/>">Giỏ hàng</a>
-							    <a class="dropdown-item" href="<c:url value="/thong-tin"/>">Đăng xuất</a>
 							  	<a class="dropdown-item" href="<c:url value="/lich-su-mua-hang"/>">Lịch sử mua hàng</a>
+							  	<a class="dropdown-item" href="<c:url value="/dang-xuat"/>">Đăng xuất</a>
 							  </div>
 							</div>
 				        </c:if>			

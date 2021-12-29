@@ -70,7 +70,7 @@ public class CartController extends HttpServlet {
 					int quantity = Integer.parseInt(req.getParameter("quantity"));
 					if(quantity > 0) {
 						BillDAO dao = new BillDAO();
-						int idBill = dao.findIdBill(idFood);
+						int idBill = dao.findIdBill(cusModel.getIdCus());
 						CartDetailDAO dao2 = new CartDetailDAO();
 						dao2.insert(idBill, idFood, quantity);
 					}

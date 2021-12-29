@@ -44,10 +44,15 @@ public class UserController extends HttpServlet{
 		CustomerDAO dao = new CustomerDAO();
 		SessionUtil.getInstance().removeValue(req, "USERMODEL");
 		dao.update(model);
-		CustomerModel model1 = dao.findLogin(model.getIdCus());
-		if(model1!=null) {
-			SessionUtil.getInstance().putValue(req, "USERMODEL", model1);
+		if(!model.getPassword().isEmpty()) {
+			resp.sendRedirect(req.getContextPath() + "/dang-xuat");
+		}else {
+			CustomerModel model1 = dao.findLogin(model.getIdCus());
+			if(model1!=null) {
+				SessionUtil.getInstance().putValue(req, "USERMODEL", model1);
+			}
+			resp.sendRedirect(req.getContextPath() +"/thong-tin");
 		}
-		resp.sendRedirect(req.getContextPath() +"/thong-tin");
+
 	}
 }
