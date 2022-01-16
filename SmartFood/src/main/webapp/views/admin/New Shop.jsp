@@ -29,7 +29,7 @@
             </div>
             <div class="Menu">
               <a href="<c:url value="/admin-report?action=list"/>"><i class="fas fa-address-book"></i>Report</a>
-              <a href="<c:url value="/admin-account?action=list"/>"><i class="fas fa-address-book"></i>Account List</a>
+              <%-- <a href="<c:url value="/admin-account?action=list"/>"><i class="fas fa-address-book"></i>Account List</a> --%>
               <a href="<c:url value="/admin-shop?action=list"/>"><i class="fas fa-address-book"></i>Shop List</a>
               <a href="<c:url value="/admin-newshop?action=list"/>"><i class="fas fa-address-book"></i><b>New Shop</b></a>
             </div>
@@ -40,24 +40,26 @@
                 <h1>Add Shop</h1>
                 <button onclick="location.href='<c:url value="/dang-xuat?action=adminLogout"/>'">Log Out <i class="fas fa-sign-out-alt"></i></button>
               </div>
-              <div class="search">
+<!--               <div class="search">
                 <form class="d-flex">
                   <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                   <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
-              </div>
+              </div> -->
               <div class="content">
                 <table class="table table-striped">
                   <thead>
                     <tr>
+                      <th scope="col">STT</th>
                       <th scope="col">Tên Quán</th>
                       <th scope="col">Số Điện Thoại</th>
                       <th scope="col">Duyệt</th>
                     </tr>
                   </thead>
                   <tbody>
-                  	<c:forEach var="item" items="${list.listResult}">
+                  	<c:forEach var="item" items="${list.listResult}" varStatus="loop">
 	                    <tr>
+	                      <td>${loop.index+1}</td>
 	                      <td>${item.storeName}</td>
 	                      <td>${item.phone}</td>     
 	                      <td><a class="btn btn-sm btn-primary btn-edit"

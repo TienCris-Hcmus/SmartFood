@@ -86,6 +86,7 @@
                               <b>${food.name_}</b>
                               <a href="#"><i class="fas fa-home"></i> Cửa hàng :${food.storeName}</a>
                              <div class="buy">
+                             	  <input type="hidden" id="money" value="${food.price}"/>
                                  <div class="total"><p id="value">${food.price}</p></div>
                                  <div class="number">
 	                                 <form id="formAdd" action="<c:url value="/gio-hang?action=addFood"/>" method="POST">
@@ -107,18 +108,23 @@
               </div>
         </div>
         <script>
-            let a=document.getElementById("number");
-            let b=document.getElementById("value");
-            function add(){
-                a.innerHTML=Number(a.value++);
-                b.innerHTML=Number(a.value *25000)
+        let a=document.getElementById("number");
+        let b=document.getElementById("value");
+        let c=document.getElementById("money");
+        function add(){
+            a.innerHTML=Number(a.value++);
+            b.innerHTML=Number(a.value*c.value);
+            return;
+        }
+        function Sub(){
+            if(a.value==1)
+            {
                 return;
             }
-            function Sub(){
-                a.innerHTML=Number(a.value--);
-                b.innerHTML=Number(a.value*25000)
-                return;
-            }
+            a.innerHTML=Number(a.value--);
+            b.innerHTML=Number(a.value*c.value);
+            return;
+        }
         </script>
     </body>
 </html>

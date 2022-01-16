@@ -13,7 +13,7 @@ public class ReportDAO extends AbstractDAO<ReportModel> implements IReportDAO{
 
 	@Override
 	public List<ReportModel> findAll() {
-		String sql = "SELECT * FROM report";
+		String sql = "select * from report where Status = 'Chưa xem' union distinct select * from report where status = 'Đã xem'";
 		return query(sql, new ReportMapper());
 	}
 
@@ -26,7 +26,7 @@ public class ReportDAO extends AbstractDAO<ReportModel> implements IReportDAO{
 
 	@Override
 	public void update(int id) {
-		String sql = "update report set Status = N'Chưa xem' where ID=?";
+		String sql = "update report set Status = N'Đã xem' where ID=?";
 		update(sql, id);
 	}
 

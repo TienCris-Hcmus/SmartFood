@@ -23,9 +23,9 @@
               <h2>Admin</h2>
             </div>
             <div class="Menu">
-              <a href="<c:url value="/admin-report?action=list"/>"><i class="fas fa-address-book"></i>Report</a>
-              <a href="<c:url value="/admin-account?action=list"/>"><i class="fas fa-address-book"></i>Account List</a>
-              <a href="<c:url value="/admin-shop?action=list"/>"><i class="fas fa-address-book"></i><b>Shop List</b></a>
+              <a href="<c:url value="/admin-report?action=list"/>"><i class="fas fa-address-book"></i><b>Report</b></a>
+              <%-- <a href="<c:url value="/admin-account?action=list"/>"><i class="fas fa-address-book"></i>Account List</a> --%>
+              <a href="<c:url value="/admin-shop?action=list"/>"><i class="fas fa-address-book"></i>Shop List</a>
               <a href="<c:url value="/admin-newshop?action=list"/>"><i class="fas fa-address-book"></i>New Shop</a>
             </div>
           </div>

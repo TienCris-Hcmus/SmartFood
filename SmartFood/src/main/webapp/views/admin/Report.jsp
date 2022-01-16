@@ -24,7 +24,7 @@
             </div>
             <div class="Menu">
               <a href="<c:url value="/admin-report?action=list"/>"><i class="fas fa-address-book"></i><b>Report</b></a>
-              <a href="<c:url value="/admin-account?action=list"/>"><i class="fas fa-address-book"></i>Account List</a>
+              <%-- <a href="<c:url value="/admin-account?action=list"/>"><i class="fas fa-address-book"></i>Account List</a> --%>
               <a href="<c:url value="/admin-shop?action=list"/>"><i class="fas fa-address-book"></i>Shop List</a>
               <a href="<c:url value="/admin-newshop?action=list"/>"><i class="fas fa-address-book"></i>New Shop</a>
             </div>
@@ -36,20 +36,19 @@
                 <button onclick="location.href='<c:url value="/dang-xuat?action=adminLogout"/>'">Log Out <i class="fas fa-sign-out-alt"></i></button>
               </div>
               <div class="search">
-                <form class="d-flex">
+<!--                 <form class="d-flex">
                   <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                   <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-                <button onclick="location.href='New Shop/New Shop.html'" class="delete">
+                </form> -->
+<!--                 <button onclick="location.href='New Shop/New Shop.html'" class="delete">
                   Delete
                   <i class="fas fa-trash-alt"></i>
-                </button>
+                </button> -->
               </div>
               <div class="content">
                 <table class="table table-striped">
                   <thead>
                     <tr>
-                      <th scope="col"><input type="checkbox"></th>
                       <th scope="col">STT</th>
                       <th scope="col">Tiêu Đề</th>
                       <th scope="col">Trạng thái</th>
@@ -57,10 +56,9 @@
                     </tr>
                   </thead>
                   <tbody>
-                  	<c:forEach var="item" items="${list.listResult}">
+                  	<c:forEach var="item" items="${list.listResult}" varStatus="loop">
 	                    <tr>
-	                      <th scope="row"> <input type="checkbox"></th>
-	                      <td>${item.id}</td>
+	                      <td>${loop.index +1}</td>
 	                      <td><a style="text-decoration: none" href="<c:url value='admin-report?action=detail&id=${item.id}&status=${item.status}'/>">${item.title}</a></td>
 	                      <td>${item.status}</td>
 	                    </tr>

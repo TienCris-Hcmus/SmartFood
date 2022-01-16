@@ -35,7 +35,7 @@ public class AdminReportController extends HttpServlet {
 			int id = Integer.parseInt(req.getParameter("id"));
 			String status = req.getParameter("status");
 			ReportDAO dao = new ReportDAO();
-			if(status.equals("Chưa Xem")) {
+			if(status.equals("Chưa xem")) {
 				dao.update(id);
 			}
 			ReportModel model = dao.findOne(id);

@@ -11,7 +11,7 @@ public class CustomerDAO extends AbstractDAO<CustomerModel> implements ICustomer
 	@Override
 	public CustomerModel findLogin(String userName, String password) {
 		StringBuilder sql = new StringBuilder("SELECT * FROM customer");
-		sql.append(" where Username=? and Password_=? and Status_='Enable'");
+		sql.append(" where binary Username=? and Password_=? and Status_='Enable'");
 		List<CustomerModel> users = query(sql.toString(), new CustomerMapper(), userName, password);
 		return users.isEmpty() ? null : users.get(0);
 	}
@@ -44,11 +44,14 @@ public class CustomerDAO extends AbstractDAO<CustomerModel> implements ICustomer
 	public void register(CustomerModel m) {
 		String sql = "insert into customer(NameCus, Phone, Username, Password_, Address_, Email, Status_) value(?,?,?,?,?,?,'Enable')";
 		update(sql, m.getNameCus(),m.getPhone(),m.getUsername(), m.getPassword(),m.getAddress_(),m.getEmail());
+		CustomerModel newCus = findLogin(m.getUsername());
+		String billSql = "insert into bill(IDCus, Status) values(?,0)";
+		update(billSql, newCus.getIdCus());
 	}
 
 	@Override
 	public CustomerModel findLogin(String userName) {
-		StringBuilder sql = new StringBuilder("SELECT * FROM customer where Username = ?");
+		StringBuilder sql = new StringBuilder("SELECT * FROM customer where binary Username = ?");
 		List<CustomerModel> users = query(sql.toString(), new CustomerMapper(), userName);
 		return users.isEmpty() ? null : users.get(0);
 	}
